@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="521.0" prefWidth="820.0" style="-fx-background-position: Generate Center;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.custAccDisplay_Controller">
+   <children>
+      <BorderPane layoutX="-1.0" layoutY="-1.0" prefHeight="521.0" prefWidth="898.0" style="-fx-background-color: #FFF8DC;">
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="377.0" prefWidth="229.0" style="-fx-background-color: #FAEBD7;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="deposit" mnemonicParsing="false" onAction="#deposit" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: V;" text="Deposit" textFill="#5e5454">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="withdraw" mnemonicParsing="false" onAction="#withdraw" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #FAEBD7;" text="Withdraw" textFill="#5e5454">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="accStat" mnemonicParsing="false" onAction="#accStat" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #FAEBD7;" text="Account Statement" textFill="#5e5454">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="Trans" mnemonicParsing="false" onAction="#Trans" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #FAEBD7;" text="Transfer" textFill="#5e5454">
+                     <font>
+                        <Font name="System Bold Italic" size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <Pane prefHeight="54.0" prefWidth="898.0" style="-fx-background-color: #DC143C;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="32.0" layoutY="7.0" prefHeight="37.0" prefWidth="247.0" text="Welcome to our Bank!">
+                     <font>
+                        <Font name="Berlin Sans FB" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <StackPane fx:id="contentArea" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

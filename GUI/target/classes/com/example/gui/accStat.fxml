@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane prefHeight="504.0" prefWidth="560.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.accStatController">
+   <children>
+      <Label layoutX="55.0" layoutY="80.0" prefHeight="30.0" prefWidth="84.0" text="Amount :">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="drawAmount_field" layoutX="206.0" layoutY="80.0" prefHeight="30.0" prefWidth="171.0" />
+      <Label layoutX="70.0" layoutY="138.0" prefHeight="30.0" prefWidth="63.0" text="To  :">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="drawAmount_field1" layoutX="206.0" layoutY="138.0" prefHeight="30.0" prefWidth="171.0" />
+   </children>
+</Pane>
