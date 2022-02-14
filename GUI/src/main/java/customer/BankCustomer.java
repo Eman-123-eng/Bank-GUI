@@ -31,7 +31,7 @@ public class BankCustomer {
     private BufferedReader customerCSVReader, adminCSVReader;
 
 
-    static ArrayList<BankCustomer> customerArrayFile;
+    public static ArrayList<BankCustomer> customerArrayFile;
     public static ArrayList<BankCustomer> adminArrayFile;
 
     //Constructor for adding customer
