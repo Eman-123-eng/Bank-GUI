@@ -4,6 +4,9 @@ import static BankManagement.BankAccount.isValidAcc;
 import BankManagement.BankAccount;
 import customer.BankCustomer;
 import static customer.BankCustomer.customerArrayFile;
+import static javafx.geometry.Pos.CENTER;
+
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,63 +18,43 @@ import javafx.scene.control.TextField;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class MainController {
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-    private Stage stage2;
-    private Scene scene2;
-    private Parent root2;
-    BufferedWriter customersCSVWriter = null;
-    
+    private Stage stage, stage2;
+
+    private Scene scene, scene2;
+
+    private Parent root, root2;
+
     @FXML
-    private TextField StreetField;
+    private TextField id_field, StreetField, cityField ,fn_field, id_register, mobileField, ln_field;
 
     @FXML
     private Label exit;
 
     @FXML
-    private TextField cityField;
-
-    @FXML
-    private Button createAcc;
-
-    @FXML
-    private TextField firstname_field;
-
-    @FXML
-    private TextField id_register;
-
-    @FXML
-    private TextField mobileField;
-
-    @FXML
-    private TextField secondName_field;
-    @FXML
-    private Button register_exit;
-    @FXML
-    private TextField id_field;
-
-    @FXML
-    private Button signin;
+    private Button signin, createAcc,register_exit ;
 
     @FXML
     private Hyperlink signup_link;
 
-
     @FXML
     void exit(MouseEvent event) {
         System.exit(0);
-
     }
+
     @FXML
     void register_exit(ActionEvent event) {
         try {// this code to switch to another frame.
@@ -91,27 +74,84 @@ public class MainController {
 
     @FXML
     void buttonPressed(ActionEvent event) throws IOException {
+        try {// this code to switch to another frame.
+            String checked = checkID(id_field.getText());
 
-//            System.out.println(isValidAcc(id_field.getText()));
-//            if(isValidAcc(id_field.getText())){
-//
-//            }
-//            System.out.println(isValidCust(id_field.getText()));
+            if (Objects.equals(checked, "Customer")) {
+                showStage("custAccDisplay.fxml");
+                signin.getScene().getWindow().hide();
 
-            try {// this code to switch to another frame.
-                ((Node)event.getSource()).getScene().getWindow().hide();
-                FXMLLoader fxml2 = new FXMLLoader(getClass().getResource("custAccDisplay.fxml"));
-                root2= fxml2.load();
-                stage2 = new Stage();
-                scene2 = new Scene(root2);
-                stage2.initStyle(StageStyle.UNDECORATED);
-                stage2.setScene(scene2);
-                stage2.show();
+            } else if (Objects.equals(checked, "Admin")) {
+                showStage("Register.fxml");
+                signin.getScene().getWindow().hide();
+
+            } else {
+                System.out.print("The checked is null");
+
+                Label l = new Label("The id is incorrect");
+                l.setStyle("-fx-background-color: white;");
+                l.setMinWidth(200);
+                l.setMinHeight(100);
+                l.setAlignment(CENTER);
+                l.getStyleClass().add("popup");
+
+                Popup pp = new Popup();
+                pp.getContent().add(l);
+
+                pp.setAutoHide(true);
+
+
+                PauseTransition delay = new PauseTransition(Duration.seconds(3));
+                delay.setOnFinished(e -> pp.hide());
+
+                if (!pp.isShowing()) {
+                    pp.show(signin.getScene().getWindow());
+                    delay.play();
+                }
             }
-            catch(Exception e){
-                System.out.print("this scene can't load");
-            }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.print("this scene can't load with error: " + e);
+        }
+    }
+
+    //this method to show the stage instead of writing it so much
+    public void showStage(String loadFile) throws IOException {
+        FXMLLoader fxml2 = new FXMLLoader(getClass().getResource(loadFile));
+        root2 = fxml2.load();
+        stage2 = new Stage();
+        //scene2 = new Scene(root2);
+        stage2.initModality(Modality.APPLICATION_MODAL);
+        stage2.initStyle(StageStyle.UNDECORATED);
+        stage2.setScene(new Scene(root2));
+        stage2.show();
+    }
+
+    private String checkID(String id) {
+        new BankAccount();
+        new BankCustomer();
+        /*if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
+            if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer
+                //if (BankCustomer.isValidPass(String.valueOf(pass))) {
+                id_field.setText("");
+                //psw.setText("");
+                //fLogin.setVisible(false);
+                System.out.println("You are a customer");
+                return "Customer";
+                *//*} else {
+                    System.out.println("Wrong password");
+                    JOptionPane.showMessageDialog(null, "This is an invalid account");
+                }*//*
+            } else {  //you are admin  // Need to be updated when the admin CSV file is created . because it can be not an admin also
+                id_field.setText("");
+                //psw.setText("");
+                // fLogin.setVisible(false);
+                System.out.println("You are an admin");
+                return "Admin";
+            }
+        }*/
+        return null;
     }
 
     @FXML
@@ -159,6 +199,7 @@ public class MainController {
 //        }
 
     }
+
     @FXML
     void Signup(ActionEvent event) throws IOException {
         System.out.print("sign up is clicket\n");
