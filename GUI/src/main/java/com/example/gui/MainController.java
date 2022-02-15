@@ -77,15 +77,15 @@ public class MainController {
         try {// this code to switch to another frame.
             String checked = checkID(id_field.getText());
 
-            //if (Objects.equals(checked, "Customer")) {
-//                showStage("custAccDisplay.fxml");
-//                signin.getScene().getWindow().hide();
+            if (Objects.equals(checked, "Customer")) {
+                showStage("custAccDisplay.fxml");
+                signin.getScene().getWindow().hide();
 
-           // } else if (Objects.equals(checked, "Admin")) {
+            } else if (Objects.equals(checked, "Admin")) {
                 showStage("AdminDisplay.fxml");
                 signin.getScene().getWindow().hide();
 
-           // } else {
+            } else {
                 System.out.print("The checked is null");
 
                 Label l = new Label("The id is incorrect");
@@ -108,7 +108,7 @@ public class MainController {
                     pp.show(signin.getScene().getWindow());
                     delay.play();
                 }
-          //  }
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
