@@ -37,7 +37,10 @@
                   </Button>
                   <AnchorPane prefHeight="253.0" prefWidth="230.0">
                      <children>
-                        <Button fx:id="back" layoutX="27.0" layoutY="214.0" mnemonicParsing="false" onAction="#onBack" text="Back" />
+                        <Button fx:id="back" layoutX="27.0" layoutY="214.0" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #DC143C; -fx-background-radius: 30;" text="Back" textFill="#fffbfb">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font></Button>
                      </children>
                   </AnchorPane>
                </children>
@@ -46,18 +49,25 @@
          <top>
             <Pane prefHeight="54.0" prefWidth="898.0" style="-fx-background-color: #DC143C;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="32.0" layoutY="7.0" prefHeight="37.0" prefWidth="247.0" text="Welcome to our Bank!">
+                  <Button fx:id="exit" cancelButton="true" layoutX="859.0" layoutY="11.0" mnemonicParsing="false" onAction="#exit" prefHeight="18.0" prefWidth="28.0" style="-fx-border-radius: 90; -fx-background-radius: 90; -fx-background-color: #DC143C;" text="X">
                      <font>
-                        <Font name="Berlin Sans FB" size="22.0" />
+                        <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                      </font>
-                  </Label>
+                  </Button>
                </children>
             </Pane>
          </top>
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <StackPane fx:id="contentArea" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <StackPane fx:id="contentArea" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label prefHeight="96.0" prefWidth="378.0" text="Welcome to our Bank!">
+                           <font>
+                              <Font name="Berlin Sans FB" size="39.0" />
+                           </font>
+                        </Label>
+                     </children></StackPane>
                </children>
             </AnchorPane>
          </center>
