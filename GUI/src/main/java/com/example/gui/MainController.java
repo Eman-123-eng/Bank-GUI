@@ -1,12 +1,9 @@
 package com.example.gui;
 
-import static customer.BankCustomer.isValidCust;
-import static BankManagement.BankAccount.isValidAcc;
 
 import BankManagement.BankAccount;
 import customer.BankCustomer;
 
-import static customer.BankCustomer.customerArrayFile;
 import static javafx.geometry.Pos.CENTER;
 
 import javafx.animation.PauseTransition;
@@ -26,9 +23,6 @@ import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 
 
 import java.io.IOException;
@@ -83,21 +77,19 @@ public class MainController {
             String checked = checkID(id_field.getText());
             MainController.ID = id_field.getText();
 
-            //if (Objects.equals(checked, "Customer")) {
-//                showStage("custAccDisplay.fxml");
-//                signin.getScene().getWindow().hide();
-
-           // } else if (Objects.equals(checked, "Admin")) {
-                showStage("AdminDisplay.fxml");
+            if (Objects.equals(checked, "Customer")) {
+                showStage("custAccDisplay.fxml");
                 signin.getScene().getWindow().hide();
 
-
-            // } else {
-            System.out.print("The checked is null");
-
-            Label l = new Label("The id is incorrect");
-            popupWindow(l, signin);
-            //  }
+            } else if (Objects.equals(checked, "Admin")) {
+                showStage("AdminDisplay.fxml");
+                signin.getScene().getWindow().hide();
+                
+            } else {
+                System.out.print("The checked is null");
+                Label l = new Label("The id is incorrect");
+                popupWindow(l, signin);
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,26 +132,23 @@ public class MainController {
     }
 
     private String checkID(String id) {
-        /*if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
+        if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
             if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer
                 //if (BankCustomer.isValidPass(String.valueOf(pass))) {
                 id_field.setText("");
-                //psw.setText("");
-                //fLogin.setVisible(false);
                 System.out.println("You are a customer");
                 return "Customer";
-                *//*} else {
+                /*} else {
                     System.out.println("Wrong password");
                     JOptionPane.showMessageDialog(null, "This is an invalid account");
-                }*//*
-            } else {  //you are admin  // Need to be updated when the admin CSV file is created . because it can be not an admin also
+                }*/
+            } else {
                 id_field.setText("");
                 //psw.setText("");
-                // fLogin.setVisible(false);
                 System.out.println("You are an admin");
                 return "Admin";
             }
-        }*/
+        }
         return null;
     }
 

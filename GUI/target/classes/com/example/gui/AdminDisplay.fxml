@@ -14,7 +14,7 @@
          <top>
             <Pane opacity="0.84" prefHeight="53.0" prefWidth="600.0" style="-fx-background-color: #DC143C;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="exit" layoutX="808.0" layoutY="10.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #DC143C;" text="X">
+                  <Button fx:id="exit" layoutX="830.0" layoutY="10.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #DC143C;" text="X">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="18.0" />
                      </font></Button>
