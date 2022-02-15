@@ -41,7 +41,7 @@ public class BankCustomer {
         int flag = 0;
         int colCount = 0;
         try {
-            customerCSVReader = new BufferedReader(new FileReader("C:\\Users\\WIN 10\\Desktop\\Java-Bank-Project\\src\\CUSTOMER\\customer.csv"));
+            customerCSVReader = new BufferedReader(new FileReader("src/main/java/customer/customers.csv"));
             while ((row = customerCSVReader.readLine()) != null) {
                 if (flag == 0) {
                     colCount = row.split(",").length;
@@ -52,14 +52,14 @@ public class BankCustomer {
 
             customerArrayFile = new ArrayList<>(numRow);
         } catch (Exception ex) {
-            System.out.println("There is error in reading for the array size: " + ex);
+            System.out.println("Error in reading for the array size: " + ex);
         }
 
         String[] customerInfo;
         flag = 0;
 
         try {
-            customerCSVReader = new BufferedReader(new FileReader("C:\\Users\\WIN 10\\Desktop\\Java-Bank-Project\\src\\CUSTOMER\\customers.csv"));
+            customerCSVReader = new BufferedReader(new FileReader("src/main/java/customer/customers.csv"));
             while ((row = customerCSVReader.readLine()) != null) {
                 if (flag == 0) {
                     flag = 1;
@@ -78,7 +78,7 @@ public class BankCustomer {
             }
             customerCSVReader.close();
         } catch (Exception ex) {
-            System.out.println("There is error in reading in the array: " + ex);
+            System.out.println("Error in reading in the array: " + ex);
         }
 
 
@@ -87,7 +87,7 @@ public class BankCustomer {
         flag = 0;
         colCount = 0;
         try {
-            adminCSVReader = new BufferedReader(new FileReader("src/BankManagement/Admins.csv"));
+            adminCSVReader = new BufferedReader(new FileReader("src/main/java/BankManagement/Admins.csv"));
             while ((row = adminCSVReader.readLine()) != null) {
                 if (flag == 0) {
                     colCount = row.split(",").length;
@@ -98,13 +98,13 @@ public class BankCustomer {
 
             adminArrayFile = new ArrayList<>(numRow);
         } catch (Exception ex) {
-            System.out.println("There is error in reading for the array size: " + ex);
+            System.out.println("Error in reading for the array size: " + ex);
         }
 
         String[] adminInfo;
         flag = 0;
         try {
-            adminCSVReader = new BufferedReader(new FileReader("src/BankManagement/Admins.csv"));
+            adminCSVReader = new BufferedReader(new FileReader("src/main/java/BankManagement/Admins.csv"));
             while ((row = adminCSVReader.readLine()) != null) {
                 if (flag == 0) {
                     flag = 1;
@@ -121,7 +121,7 @@ public class BankCustomer {
             }
             adminCSVReader.close();
         } catch (Exception ex) {
-            System.out.println("There is error in reading in the array: " + ex);
+            System.out.println("Error in reading in the array: " + ex);
         }
     }
 
