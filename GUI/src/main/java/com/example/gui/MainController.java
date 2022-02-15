@@ -109,7 +109,6 @@ public class MainController {
 
         pp.setAutoHide(true);
 
-
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(e -> pp.hide());
 
