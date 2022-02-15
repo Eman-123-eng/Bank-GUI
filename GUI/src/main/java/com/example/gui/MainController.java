@@ -75,7 +75,6 @@ public class MainController {
         try {// this code to switch to another frame.
 
             String checked = checkID(id_field.getText());
-            MainController.ID = id_field.getText();
 
             if (Objects.equals(checked, "Customer")) {
                 showStage("custAccDisplay.fxml");
@@ -132,6 +131,7 @@ public class MainController {
 
     private String checkID(String id) {
         if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
+            MainController.ID = id_field.getText();
             if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer
                 //if (BankCustomer.isValidPass(String.valueOf(pass))) {
                 id_field.setText("");

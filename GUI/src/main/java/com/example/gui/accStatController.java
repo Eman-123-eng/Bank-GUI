@@ -2,6 +2,7 @@ package com.example.gui;
 
 import BankManagement.BankAccount;
 import javafx.application.Application;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,22 +18,26 @@ import java.util.ResourceBundle;
 public class accStatController implements Initializable {
 
     @FXML
-    private TableView<extractState> table;
+    private TableView<MiniStatement> table;
 
     @FXML
-    private TableColumn<extractState, ?> opCol, dateCol, balCol;
+    private TableColumn<MiniStatement, String> opCol, dateCol, balCol;
 
     private BankAccount myAcc = BankAccount.getAccount(MainController.ID);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (myAcc == null) return;
+        table.setEditable(true);
         loadState();
     }
 
-    private ObservableList<extractState> states() {
+    private ObservableList<MiniStatement> states() {
 
-        ObservableList<extractState> statesModel = FXCollections.observableArrayList();
+        ObservableList<MiniStatement> statesModel = FXCollections.observableArrayList(
+                new MiniStatement("opopop", "date", "balanceee"),
+                new MiniStatement("op2", "date", "balanceee")
+        );
 
         for (String s : myAcc.getOperations()) {
             System.out.println("op: " + s);
@@ -40,32 +45,21 @@ public class accStatController implements Initializable {
             System.out.println("first: " + first);
             String[] ft = first.split(":");
             String op = ft[0];
-            statesModel.add(new extractState(ft[0], "date", "balanceee"));
+            statesModel.add(new MiniStatement(ft[0], "date", "balanceee"));
         }
 
         return statesModel;
     }
 
     private void loadState() {
-        opCol.setCellValueFactory(new PropertyValueFactory<>("operations"));
-        dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
-        balCol.setCellValueFactory(new PropertyValueFactory<>("balance"));
+        opCol.setCellValueFactory(new PropertyValueFactory<MiniStatement, String>("operation"));
+        dateCol.setCellValueFactory(new PropertyValueFactory<MiniStatement, String>("date"));
+        balCol.setCellValueFactory(new PropertyValueFactory<MiniStatement, String>("balance"));
 
         table.setItems(states());
-        table.getColumns().addAll(opCol, dateCol, balCol);
+        table.getItems().addAll(states());
     }
 
 
 }
 
-class extractState {
-    String operation;
-    String date;
-    String balance;
-
-    extractState(String operations, String date, String balance) {
-        this.operation = operations;
-        this.date = date;
-        this.balance = balance;
-    }
-}
