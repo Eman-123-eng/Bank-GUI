@@ -6,19 +6,28 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="504.0" prefWidth="648.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.accStatController">
+<Pane prefHeight="504.0" prefWidth="648.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.accStatController">
     <children>
         <Label layoutX="275.0" layoutY="24.0" prefHeight="30.0" prefWidth="129.0" text="mini-Statement">
             <font>
-                <Font name="System Bold Italic" size="15.0"/>
+                <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <TableView fx:id="table" layoutX="38.0" layoutY="63.0" prefHeight="379.0" prefWidth="573.0">
+      <Label layoutX="174.0" layoutY="435.0" text="Balance: " textFill="#dc4646">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="275.0" layoutY="435.0" text="amount" textFill="#c72525">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+        <TableView fx:id="table" layoutX="78.0" layoutY="63.0" prefHeight="333.0" prefWidth="501.0">
             <columns>
-                <TableColumn fx:id="opCol" prefWidth="186.0" text="Operations"/>
-                <TableColumn fx:id="amtCol" prefWidth="190.0" text="Amount"/>
-                <TableColumn fx:id="dateCol" prefWidth="196.0" text="Date"/>
+                <TableColumn fx:id="opCol" prefWidth="186.0" text="Operations" />
+                <TableColumn fx:id="amtCol" prefWidth="190.0" text="Amount" />
+                <TableColumn fx:id="dateCol" prefWidth="196.0" text="Date" />
             </columns>
         </TableView>
 

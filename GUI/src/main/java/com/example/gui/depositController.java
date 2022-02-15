@@ -59,7 +59,6 @@ public class depositController {
         newBal_Label.setText("New Balance: " + myAcc.getBalance());
         depAmt_field.setText("");
 
-        BankAccount.writeToFile();
     }
 
 }

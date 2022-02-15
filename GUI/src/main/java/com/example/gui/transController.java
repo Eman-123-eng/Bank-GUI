@@ -81,8 +81,6 @@ public class transController {
         transAmt_field.setText("");
         transTo_field.setText("");
 
-        BankAccount.writeToFile(); //should be deleted and used once
-
     }
 
 }

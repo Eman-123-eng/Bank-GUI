@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -17,11 +18,13 @@ public class AdminController {
     private Stage stage;
     private Parent root;
     private Scene scene;
+    boolean isOn = false;
+
     @FXML
     private StackPane contentArea;
 
     @FXML
-    private Button Manage,accStat,addBtn,deleteBtn,deposit,editBtn,transfer,transaction_Button,withdraw,exit;
+    private Button Manage, accStat, addBtn, deleteBtn, deposit, editBtn, transfer, transaction_Button, withdraw, exit;
 
     @FXML
     void exit(ActionEvent event) {
@@ -41,17 +44,7 @@ public class AdminController {
 
 
     @FXML
-    void accStat(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("accStat.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
-
-    }
-
-    @FXML
-    void addBtn(ActionEvent event) throws IOException{
+    void addBtn(ActionEvent event) throws IOException {
         FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("adminADD.fxml"));
         Parent root1 = fxml1.load();
 
@@ -61,7 +54,7 @@ public class AdminController {
     }
 
     @FXML
-    void deleteBtn(ActionEvent event) throws IOException{
+    void deleteBtn(ActionEvent event) throws IOException {
         FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("adminDELETE.fxml"));
         Parent root1 = fxml1.load();
 
@@ -71,35 +64,29 @@ public class AdminController {
     }
 
     @FXML
-    void deposit(ActionEvent event) throws IOException{
+    void editBtn(ActionEvent event) throws IOException {
+        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("adminEDIT.fxml"));
+        Parent root1 = fxml1.load();
+
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(root1);
+    }
+
+
+    @FXML
+    void deposit(ActionEvent event) throws IOException {
         FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("deposit.fxml"));
         Parent root1 = fxml1.load();
 
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(root1);
 
-    }
+        //deposit.getStyleClass().add("deposit");
 
-    @FXML
-    void editBtn(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("adminEDIT.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
-
-
-    }
-
-
-
-    @FXML
-    void transfer(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("transfer.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
+        deposit.setStyle("-fx-background-color: #c7b4b4;");
+        withdraw.setStyle("-fx-background-color: NONE;");
+        transfer.setStyle("-fx-background-color: NONE;");
+        accStat.setStyle("-fx-background-color: NONE;");
 
     }
 
@@ -110,6 +97,41 @@ public class AdminController {
 
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(root1);
+
+
+        withdraw.setStyle("-fx-background-color: #c7b4b4;");
+        deposit.setStyle("-fx-background-color: NONE;");
+        transfer.setStyle("-fx-background-color: NONE;");
+        accStat.setStyle("-fx-background-color: NONE;");
+    }
+
+    @FXML
+    void accStat(ActionEvent event) throws IOException {
+        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("accStat.fxml"));
+        Parent root1 = fxml1.load();
+
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(root1);
+
+        accStat.setStyle("-fx-background-color: #c7b4b4;");
+        deposit.setStyle("-fx-background-color: NONE;");
+        transfer.setStyle("-fx-background-color: NONE;");
+        withdraw.setStyle("-fx-background-color: NONE;");
+
+    }
+
+    @FXML
+    void transfer(ActionEvent event) throws IOException {
+        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("transfer.fxml"));
+        Parent root1 = fxml1.load();
+
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(root1);
+
+        transfer.setStyle("-fx-background-color: #c7b4b4;");
+        withdraw.setStyle("-fx-background-color: NONE;");
+        deposit.setStyle("-fx-background-color: NONE;");
+        accStat.setStyle("-fx-background-color: NONE;");
 
     }
 

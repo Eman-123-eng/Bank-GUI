@@ -66,7 +66,6 @@ public class withdrawController {
         newBal_Label.setText("New Balance: " + myAcc.getBalance());
         drawAmt_field.setText("");
 
-        BankAccount.writeToFile();
     }
 
 }

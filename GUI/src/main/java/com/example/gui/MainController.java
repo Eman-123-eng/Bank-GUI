@@ -101,7 +101,9 @@ public class MainController {
         l.setMinWidth(200);
         l.setMinHeight(100);
         l.setAlignment(CENTER);
-        l.getStyleClass().add("popup");
+
+        //scene2.getStylesheets().add("src/main/java/css/styles.css");
+        //l.getStyleClass().add("popup");
 
         Popup pp = new Popup();
         pp.getContent().add(l);
