@@ -1,5 +1,7 @@
 package com.example.gui;
 
+import BankManagement.BankAccount;
+import customer.BankCustomer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -27,6 +29,10 @@ public class MainDisplay extends Application {
     }
 
     public static void main(String[] args) {
+        //These two to load the Excel files
+        new BankAccount();
+        new BankCustomer();
+
         launch(args);
     }
 }

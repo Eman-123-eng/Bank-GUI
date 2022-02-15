@@ -14,18 +14,18 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="depAmount_field" layoutX="230.0" layoutY="107.0" prefHeight="30.0" prefWidth="171.0" />
+      <TextField fx:id="depAmt_field" layoutX="230.0" layoutY="107.0" prefHeight="30.0" prefWidth="171.0" />
       <Label layoutX="27.0" layoutY="30.0" prefHeight="30.0" prefWidth="202.0" text="Please enter your amount !">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="newBalance_label" layoutX="27.0" layoutY="260.0" prefHeight="184.0" prefWidth="514.0" text="//label to write the amount of deposit and the new balance after finishing the process">
+      <Label fx:id="newBal_Label" layoutX="27.0" layoutY="260.0" prefHeight="184.0" prefWidth="514.0" text="//label to write the amount of deposit and the new balance after finishing the process">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="deposit_action" layoutX="200.0" layoutY="194.0" mnemonicParsing="false" onAction="#deposit_action" prefHeight="36.0" prefWidth="124.0" style="-fx-background-radius: 30; -fx-background-color: #DC143C;" text="Deposit" textFill="#fffefe">
+      <Button fx:id="deposit" layoutX="200.0" layoutY="194.0" mnemonicParsing="false" onAction="#onDeposit" prefHeight="36.0" prefWidth="124.0" style="-fx-background-radius: 30; -fx-background-color: #DC143C;" text="Deposit" textFill="#fffefe">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>

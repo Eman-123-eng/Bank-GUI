@@ -19,13 +19,13 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="drawAmount_field" layoutX="243.0" layoutY="102.0" prefHeight="30.0" prefWidth="171.0" />
-      <Button fx:id="withdraw_action" layoutX="214.0" layoutY="194.0" mnemonicParsing="false" onAction="#withdraw_action" prefHeight="36.0" prefWidth="124.0" style="-fx-background-radius: 30; -fx-background-color: #DC143C;" text="Withdraw" textFill="#fffefe">
+      <TextField fx:id="drawAmt_field" layoutX="243.0" layoutY="102.0" prefHeight="30.0" prefWidth="171.0" />
+      <Button fx:id="withdraw" layoutX="214.0" layoutY="194.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="36.0" prefWidth="124.0" style="-fx-background-radius: 30; -fx-background-color: #DC143C;" text="Withdraw" textFill="#fffefe">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Label fx:id="newBalance_label" layoutX="37.0" layoutY="270.0" prefHeight="184.0" prefWidth="514.0" text="//label to write the amount of withdraw and the new balance after finishing the process">
+      <Label fx:id="newBal_Label" layoutX="37.0" layoutY="270.0" prefHeight="184.0" prefWidth="514.0" text="//label to write the amount of withdraw and the new balance after finishing the process">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

@@ -1,8 +1,11 @@
 package com.example.gui;
+
 import static customer.BankCustomer.isValidCust;
 import static BankManagement.BankAccount.isValidAcc;
+
 import BankManagement.BankAccount;
 import customer.BankCustomer;
+
 import static customer.BankCustomer.customerArrayFile;
 import static javafx.geometry.Pos.CENTER;
 
@@ -39,13 +42,14 @@ public class MainController {
     private Parent root, root2;
 
     @FXML
-    private TextField id_field, StreetField, cityField ,fn_field, id_register, mobileField, ln_field;
+    private TextField id_field, StreetField, cityField, fn_field, id_register, mobileField, ln_field;
+    public static String ID;
 
     @FXML
     private Label exit;
 
     @FXML
-    private Button signin, createAcc,register_exit ;
+    private Button signin, createAcc, register_exit;
 
     @FXML
     private Hyperlink signup_link;
@@ -58,7 +62,7 @@ public class MainController {
     @FXML
     void register_exit(ActionEvent event) {
         try {// this code to switch to another frame.
-            ((Node)event.getSource()).getScene().getWindow().hide();
+            ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader fxml = new FXMLLoader(getClass().getResource("hello-view.fxml"));
             root = fxml.load();
             stage = new Stage();
@@ -75,44 +79,51 @@ public class MainController {
     @FXML
     void buttonPressed(ActionEvent event) throws IOException {
         try {// this code to switch to another frame.
+
             String checked = checkID(id_field.getText());
+            MainController.ID = id_field.getText();
 
-            if (Objects.equals(checked, "Customer")) {
-                showStage("custAccDisplay.fxml");
-                signin.getScene().getWindow().hide();
+            //if (Objects.equals(checked, "Customer")) {
+//                showStage("custAccDisplay.fxml");
+//                signin.getScene().getWindow().hide();
 
-            } else if (Objects.equals(checked, "Admin")) {
+           // } else if (Objects.equals(checked, "Admin")) {
                 showStage("AdminDisplay.fxml");
                 signin.getScene().getWindow().hide();
 
-            } else {
-                System.out.print("The checked is null");
 
-                Label l = new Label("The id is incorrect");
-                l.setStyle("-fx-background-color: white;");
-                l.setMinWidth(200);
-                l.setMinHeight(100);
-                l.setAlignment(CENTER);
-                l.getStyleClass().add("popup");
+            // } else {
+            System.out.print("The checked is null");
 
-                Popup pp = new Popup();
-                pp.getContent().add(l);
-
-                pp.setAutoHide(true);
-
-
-                PauseTransition delay = new PauseTransition(Duration.seconds(3));
-                delay.setOnFinished(e -> pp.hide());
-
-                if (!pp.isShowing()) {
-                    pp.show(signin.getScene().getWindow());
-                    delay.play();
-                }
-            }
+            Label l = new Label("The id is incorrect");
+            popupWindow(l, signin);
+            //  }
 
         } catch (Exception e) {
             e.printStackTrace();
             System.out.print("this scene can't load with error: " + e);
+        }
+    }
+
+    public void popupWindow(Label l, Button btn) {
+        l.setStyle("-fx-background-color: white;");
+        l.setMinWidth(200);
+        l.setMinHeight(100);
+        l.setAlignment(CENTER);
+        l.getStyleClass().add("popup");
+
+        Popup pp = new Popup();
+        pp.getContent().add(l);
+
+        pp.setAutoHide(true);
+
+
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
+        delay.setOnFinished(e -> pp.hide());
+
+        if (!pp.isShowing()) {
+            pp.show(btn.getScene().getWindow());
+            delay.play();
         }
     }
 
@@ -129,8 +140,6 @@ public class MainController {
     }
 
     private String checkID(String id) {
-        new BankAccount();
-        new BankCustomer();
         /*if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
             if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer
                 //if (BankCustomer.isValidPass(String.valueOf(pass))) {
@@ -204,7 +213,7 @@ public class MainController {
     void Signup(ActionEvent event) throws IOException {
         System.out.print("sign up is clicket\n");
         try {// this code to switch to another frame.
-            ((Node)event.getSource()).getScene().getWindow().hide();
+            ((Node) event.getSource()).getScene().getWindow().hide();
             FXMLLoader fxml = new FXMLLoader(getClass().getResource("Register.fxml"));
             root = fxml.load();
             stage = new Stage();
