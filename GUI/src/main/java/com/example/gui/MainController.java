@@ -78,11 +78,11 @@ public class MainController {
             String checked = checkID(id_field.getText());
 
             //if (Objects.equals(checked, "Customer")) {
-                showStage("custAccDisplay.fxml");
-                signin.getScene().getWindow().hide();
+//                showStage("custAccDisplay.fxml");
+//                signin.getScene().getWindow().hide();
 
            // } else if (Objects.equals(checked, "Admin")) {
-                showStage("Register.fxml");
+                showStage("AdminDisplay.fxml");
                 signin.getScene().getWindow().hide();
 
            // } else {
