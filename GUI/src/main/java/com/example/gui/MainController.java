@@ -83,7 +83,7 @@ public class MainController {
             } else if (Objects.equals(checked, "Admin")) {
                 showStage("AdminDisplay.fxml");
                 signin.getScene().getWindow().hide();
-                
+
             } else {
                 System.out.print("The checked is null");
                 Label l = new Label("The id is incorrect");

@@ -32,10 +32,12 @@ public class custAccDisplay_Controller {
     private StackPane contentArea;
 
     @FXML
-    private Button Trans, accStat, deposit, withdraw, back,signout,exit;
+    private Button Trans, accStat, deposit, withdraw, back, signout, exit;
 
     @FXML
-    void signout(ActionEvent event) {System.exit(0);}
+    void signout(ActionEvent event) {
+        System.exit(0);
+    }
 
     @FXML
     void exit(ActionEvent event) {
@@ -52,7 +54,6 @@ public class custAccDisplay_Controller {
             System.out.print("this scene can't load");
         }
     }
-
 
 
     @FXML

@@ -71,10 +71,10 @@ public class transController {
         myAcc.setBalance(myAcc.getBalance() - amt);
         toAcc.setBalance(toAcc.getBalance() + amt);
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy   HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
 
-        if(Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
+        if (Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
         myAcc.getOperations().add(myAcc.getOperations().size(), "Transfer:" + amt + "-- to " + toAcc.getAcctNo() + "-- at:" + dtf.format(now));
 
         transLabel.setText("New Balance: " + myAcc.getBalance());

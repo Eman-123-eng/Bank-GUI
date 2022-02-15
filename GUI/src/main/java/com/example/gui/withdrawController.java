@@ -57,10 +57,10 @@ public class withdrawController {
 
         myAcc.setBalance(myAcc.getBalance() - amt);
 
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy   HH:mm:ss");
         LocalDateTime now = LocalDateTime.now();
 
-        if(Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
+        if (Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
         myAcc.getOperations().add(myAcc.getOperations().size(), "Withdrawal:" + amt + "-- at:" + dtf.format(now));
 
         newBal_Label.setText("New Balance: " + myAcc.getBalance());

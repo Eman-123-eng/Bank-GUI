@@ -17,8 +17,8 @@
         <TableView fx:id="table" layoutX="38.0" layoutY="63.0" prefHeight="379.0" prefWidth="573.0">
             <columns>
                 <TableColumn fx:id="opCol" prefWidth="186.0" text="Operations"/>
+                <TableColumn fx:id="amtCol" prefWidth="190.0" text="Amount"/>
                 <TableColumn fx:id="dateCol" prefWidth="196.0" text="Date"/>
-                <TableColumn fx:id="balCol" prefWidth="190.0" text="Balance"/>
             </columns>
         </TableView>
 
