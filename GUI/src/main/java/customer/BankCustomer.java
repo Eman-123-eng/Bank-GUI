@@ -305,6 +305,23 @@ public class BankCustomer {
         return adminArrayFile;
     }
 
+    // this methode only for admins
+    public static BankCustomer getAdminAccount(String ID) {
+        for (BankCustomer account : BankCustomer.adminArrayFile) {
+            if (Objects.equals(account.getAcctID(), ID)) {
+                return account;
+            }
+        }
+        return null;
+    }
+    public static BankCustomer getCustAccount(String id) {
+        for (BankCustomer bankcustomer : customerArrayFile) {
+            if (Objects.equals(id, bankcustomer.getAcctID()))
+                return bankcustomer;
+        }
+        return null;
+    }
+
     //-------setters------------
 
     public void setCustID(String customerID) {
