@@ -2,6 +2,7 @@ package com.example.gui;
 
 import BankManagement.BankAccount;
 import customer.BankCustomer;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
