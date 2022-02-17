@@ -20,7 +20,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="newBal_Label" layoutX="27.0" layoutY="260.0" prefHeight="184.0" prefWidth="514.0" text="//label to write the amount of deposit and the new balance after finishing the process">
+      <Label fx:id="newBal_Label" layoutX="27.0" layoutY="260.0" prefHeight="184.0" prefWidth="514.0" text="">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

@@ -25,7 +25,7 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Label fx:id="newBal_Label" layoutX="37.0" layoutY="270.0" prefHeight="184.0" prefWidth="514.0" text="//label to write the amount of withdraw and the new balance after finishing the process">
+      <Label fx:id="newBal_Label" layoutX="37.0" layoutY="270.0" prefHeight="184.0" prefWidth="514.0" text="">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>

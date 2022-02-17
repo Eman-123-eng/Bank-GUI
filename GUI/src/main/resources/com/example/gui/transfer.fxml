@@ -31,6 +31,6 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
-      <Label fx:id="transLabel" layoutX="55.0" layoutY="338.0" prefHeight="111.0" prefWidth="450.0" text="// here we'll show message &quot;Your money has been tranferred&quot; after operation" />
+      <Label fx:id="transLabel" layoutX="55.0" layoutY="338.0" prefHeight="111.0" prefWidth="450.0" text="" />
    </children>
 </Pane>
