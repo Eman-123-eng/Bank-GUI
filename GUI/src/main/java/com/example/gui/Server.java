@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -21,38 +22,39 @@ public class Server extends Thread {
         try {
             serverSocket = new ServerSocket(port);
             this.start(); //making the thread to start
-            System.out.println("Server started. Listening on port: " + port);
+            System.out.println("Server started. Listening on port: " + port + " with IP " +
+                    InetAddress.getLocalHost().getHostAddress().trim());
         } catch (IOException e) {
             System.out.println("Could not listen on port: " + port + " " + e);
         }
     }
 
-    public void stopServer() {
+     /*public void stopServer() {
         running = false;
         this.interrupt(); //to stop the thread
-    }
+    }*/
 
     @Override
     public void run() {
         running = true;
         while (running) {
-            try {
-                //the "accept" method waits for a new client connection and returns an individual socket (communication) for that connection
-                clientSocket = serverSocket.accept();
-                //Handle the connection  //Multithreaded programming
+        try {
+            //the "accept" method waits for a new client connection and returns an individual socket (communication) for that connection
+            clientSocket = serverSocket.accept();
+            //Handle the connection  //Multithreaded programming
 
-                //pass the socket to the requestHandler thread for processing
-                RequestHandler reqHandler = new RequestHandler(clientSocket);
-                reqHandler.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            //pass the socket to the requestHandler thread for processing
+            RequestHandler reqHandler = new RequestHandler(clientSocket);
+            reqHandler.start();
+            if (clientSocket.isClosed())
+                System.out.println("Client is closed");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+         }
     }
 
     public static void main(String[] args) {
-
-
         /*//we will keep listening to the socket's input stream until the message "over" is encountered
         while (!message.equalsIgnoreCase("over")) {
             try {
@@ -78,50 +80,64 @@ public class Server extends Thread {
 
         }*/
 
-
         Server server = new Server();
         server.startServer();
-    }
-}
 
-class RequestHandler extends Thread {
-    private Socket clientSocket;
+        if (serverSocket.isClosed())
+            System.out.println("Server is closed");
 
-    RequestHandler(Socket clientSocket) {
-        this.clientSocket = clientSocket;
     }
 
-    @Override
-    public void run() {
-        try {
-            System.out.println("Received a connection");
+    class RequestHandler extends Thread {
+        private Socket clientSocket;
+        String inputLine, outputLine;
 
-            // Get input and output streams
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            PrintWriter out = new PrintWriter(clientSocket.getOutputStream());
+        RequestHandler(Socket clientSocket) {
+            this.clientSocket = clientSocket;
+        }
 
-            // Write out to the client
-            out.println("The server response");
-            out.flush();
+        @Override
+        public void run() {
+            try {
+                System.out.println("Received a connection");
 
-            //Echo lines back to the client until the client closes the connection
-            String line = in.readLine();
-            while (line != null) {
-                out.println("Echo: " + line);
+                // Get input and output streams
+                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+                // Firstly, Write out to the client.
+                outputLine = "Server response";
+                out.println(outputLine);
                 out.flush();
-                line = in.readLine();
+
+                //Sending responses to the client until the client closes the connection
+                inputLine = in.readLine();
+                while (inputLine != null && inputLine.length() > 0) {
+                    System.out.println("Client: " + inputLine);
+                    if(inputLine.equals("1122")){
+                        System.out.println("you can sign in");
+                        outputLine = "Sign in";
+                    }
+
+                    out.println(outputLine);
+                    out.flush();
+                    if (outputLine.equals("Bye"))
+                        break;
+                    inputLine = in.readLine();
+                }
+
+                out.close();
+
+                //close the connection
+                //in.close();
+                //clientSocket.close();
+
+                //System.out.println("Connection closed");
+            } catch (IOException e) {
+                System.out.println("Cannot listen on port " + "7777");
+                e.printStackTrace();
             }
-
-            //close the connection
-            in.close();
-            out.close();
-            clientSocket.close();
-
-            System.out.println("Connection closed");
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
-
-
 }
+

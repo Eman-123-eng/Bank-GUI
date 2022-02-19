@@ -1,5 +1,6 @@
 package com.example.gui;
 
+import BankManagement.BankAccount;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -50,6 +51,7 @@ public class custAccDisplay_Controller {
             stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.show();
+            BankAccount.writeToFile();
         } catch (Exception e) {
             System.out.print("this scene can't load");
         }
