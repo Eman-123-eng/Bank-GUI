@@ -13,12 +13,12 @@
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-      <Label layoutX="174.0" layoutY="435.0" text="Balance: " textFill="#dc4646">
+      <Label layoutX="174.0" layoutY="411.0" text="Balance: " textFill="#dc4646">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="275.0" layoutY="435.0" text="amount" textFill="#c72525">
+      <Label fx:id="B_Label" layoutX="279.0" layoutY="411.0" prefHeight="35.0" prefWidth="139.0" textFill="#c72525">
          <font>
             <Font size="24.0" />
          </font>

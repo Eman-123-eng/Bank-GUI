@@ -18,7 +18,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="275.0" layoutY="435.0" text="amount" textFill="#c72525">
+      <Label fx:id="B_Label" layoutX="275.0" layoutY="435.0" prefHeight="35.0" prefWidth="122.0" textFill="#c72525">
          <font>
             <Font size="24.0" />
          </font>

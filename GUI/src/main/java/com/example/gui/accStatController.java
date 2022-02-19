@@ -1,12 +1,14 @@
 package com.example.gui;
 
 import BankManagement.BankAccount;
+import customer.BankCustomer;
 import javafx.application.Application;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,6 +27,8 @@ public class accStatController implements Initializable {
 
     @FXML
     private TableColumn<MiniStatement, String> opCol, amtCol, dateCol;
+    @FXML
+    private Label B_Label;
 
     private BankAccount myAcc = BankAccount.getAccount(MainController.ID);
 
@@ -52,6 +56,7 @@ public class accStatController implements Initializable {
             String[] ft = first.split(":");
 
             statesModel.add(new MiniStatement(ft[0].trim(), ft[1].trim(), sec.split("at:")[1]));
+
         }
 
         return statesModel;
@@ -63,6 +68,7 @@ public class accStatController implements Initializable {
         dateCol.setCellValueFactory(new PropertyValueFactory<>("date"));
 
         table.setItems(states());
+        B_Label.setText(String.valueOf(myAcc.getBalance()));
     }
 
 
