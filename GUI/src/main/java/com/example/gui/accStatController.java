@@ -32,8 +32,6 @@ public class accStatController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if (myAcc == null) return;
 
-        BankAccount.writeToFile();
-
         table.setEditable(false);
         opCol.setResizable(false);
         amtCol.setResizable(false);

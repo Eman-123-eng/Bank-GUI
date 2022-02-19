@@ -51,6 +51,7 @@ public class MainController {
 
     @FXML
     void exit(MouseEvent event) {
+        System.out.println("Sign out5");
         System.exit(0);
     }
 
