@@ -1,5 +1,7 @@
 package com.example.gui;
 
+import BankManagement.BankAccount;
+import customer.BankCustomer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,10 +9,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class ADDController {
+import java.time.LocalDate;
 
+public class ADDController {
     @FXML
     private TextField StreetField;
+
+    @FXML
+    private TextField accID_Field;
+
+    @FXML
+    private TextField accNo_Field1;
 
     @FXML
     private Button addAcc;
@@ -22,10 +31,13 @@ public class ADDController {
     private TextField cityField;
 
     @FXML
-    private TextField firstname_field;
+    private TextField custID_Field1;
 
     @FXML
-    private TextField idField;
+    private TextField balanceField;
+
+    @FXML
+    private TextField firstname_field;
 
     @FXML
     private TextField lastName_field;
@@ -34,13 +46,23 @@ public class ADDController {
     private TextField mobileField;
 
     @FXML
-    void addAcc(ActionEvent event) {
+    private TextField typeField1;
 
-    }
 
     @FXML
-    void createAcc(MouseEvent event) {
+    void addAcc(ActionEvent event) {
+        BankAccount acc = new BankAccount(accID_Field.getText(),accNo_Field1.getText(),LocalDate.now(),typeField1.getText()) ;
+        BankCustomer cust = new BankCustomer(custID_Field1.getText(),firstname_field.getText(),lastName_field.getText(),accID_Field.getText(),cityField.getText(),StreetField.getText(),mobileField.getText());
+        BankCustomer.getCustArrayFile().add(cust);
+        BankAccount.getAccArrayFile().add(acc);
+        acc.setBalance(Double.parseDouble(balanceField.getText()));
+        acc.setCustID(custID_Field1.getText());
+        BankCustomer.writeToCustFile();
+        BankAccount.writeToFile();
+        addLabel.setText("Account is added successfully!");
 
     }
+
+
 
 }

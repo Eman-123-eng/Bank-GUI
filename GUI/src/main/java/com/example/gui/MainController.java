@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
@@ -99,6 +100,7 @@ public class MainController {
     public void popupWindow(Label l, Button btn) {
         l.setStyle("-fx-background-color: white;");
         l.setMinWidth(200);
+        l.setFont(new Font("System Bold Italic", 16));
         l.setMinHeight(100);
         l.setAlignment(CENTER);
 
@@ -202,18 +204,29 @@ public class MainController {
     @FXML
     void Signup(ActionEvent event) throws IOException {
         System.out.print("sign up is clicket\n");
-        try {// this code to switch to another frame.
-            ((Node) event.getSource()).getScene().getWindow().hide();
-            FXMLLoader fxml = new FXMLLoader(getClass().getResource("Register.fxml"));
-            root = fxml.load();
-            stage = new Stage();
-            scene = new Scene(root);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            System.out.print("this scene can't load");
+        Label l = new Label("Please visit our Bank to open your account!");
+        l.setStyle("-fx-background-color: white;");
+        l.setFont(new Font("System Bold Italic", 16));
+        l.setMinWidth(200);
+        l.setMinHeight(100);
+        l.setAlignment(CENTER);
+
+        //scene2.getStylesheets().add("src/main/java/css/styles.css");
+        //l.getStyleClass().add("popup");
+
+        Popup pp = new Popup();
+        pp.getContent().add(l);
+
+        pp.setAutoHide(true);
+
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
+        delay.setOnFinished(e -> pp.hide());
+
+        if (!pp.isShowing()) {
+            pp.show(signup_link.getScene().getWindow());
+            delay.play();
         }
+
 
 
     }

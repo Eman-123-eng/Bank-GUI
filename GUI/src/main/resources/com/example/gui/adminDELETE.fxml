@@ -6,25 +6,35 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="470.0" prefWidth="600.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.DELETEController">
    <children>
-      <Label layoutX="82.0" layoutY="72.0" prefHeight="30.0" prefWidth="98.0" text="Account ID :">
+      <Label layoutX="79.0" layoutY="149.0" prefHeight="30.0" prefWidth="98.0" text="Account ID :">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="79.0" layoutY="146.0" prefHeight="30.0" prefWidth="104.0" text="Account No. : ">
+      <Label layoutX="76.0" layoutY="226.0" prefHeight="30.0" prefWidth="104.0" text="Account No. : ">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="Acc_ID" layoutX="239.0" layoutY="72.0" prefHeight="30.0" prefWidth="171.0" />
-      <TextField fx:id="Acc_no" layoutX="239.0" layoutY="146.0" prefHeight="30.0" prefWidth="171.0" />
+      <TextField fx:id="Acc_ID" layoutX="239.0" layoutY="149.0" prefHeight="30.0" prefWidth="171.0" />
+      <TextField fx:id="Acc_no" layoutX="239.0" layoutY="226.0" prefHeight="30.0" prefWidth="171.0" />
       <Button fx:id="deleteBtn" layoutX="410.0" layoutY="358.0" mnemonicParsing="false" onAction="#deleteBtn" prefHeight="36.0" prefWidth="138.0" style="-fx-background-radius: 30; -fx-background-color: #DC143C;" text="Delete Account" textFill="#fffefe">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Button>
+      <Label layoutX="85.0" layoutY="77.0" prefHeight="30.0" prefWidth="98.0" text="Your ID :">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="adminID" layoutX="239.0" layoutY="77.0" prefHeight="30.0" prefWidth="171.0" />
+      <Label fx:id="deleteLabel" layoutX="54.0" layoutY="341.0" prefHeight="63.0" prefWidth="258.0">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

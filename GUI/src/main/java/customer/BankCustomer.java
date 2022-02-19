@@ -305,10 +305,18 @@ public class BankCustomer {
         return adminArrayFile;
     }
 
-    // this methode only for admins
+    // these methods are only for admins
     public static BankCustomer getAdminAccount(String ID) {
         for (BankCustomer account : BankCustomer.adminArrayFile) {
             if (Objects.equals(account.getAcctID(), ID)) {
+                return account;
+            }
+        }
+        return null;
+    }
+    public static BankCustomer getAccbyAdminID(String ID) {
+        for (BankCustomer account : BankCustomer.adminArrayFile) {
+            if (Objects.equals(account.getCustID(), ID)) {
                 return account;
             }
         }
