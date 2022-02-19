@@ -100,7 +100,6 @@ public class MainController {
     public void popupWindow(Label l, Button btn) {
         l.setStyle("-fx-background-color: white;");
         l.setMinWidth(200);
-        l.setStyle("-fx-border-color: #a40b48;");
         l.setFont(new Font("System Bold Italic", 16));
         l.setMinHeight(100);
         l.setAlignment(CENTER);
@@ -135,6 +134,7 @@ public class MainController {
     }
 
     private String checkID(String id) {
+        System.out.println(BankAccount.isValidAcc(id));
         if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
             MainController.ID = id_field.getText();
             if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer

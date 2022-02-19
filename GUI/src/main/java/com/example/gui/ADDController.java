@@ -11,6 +11,9 @@ import javafx.scene.input.MouseEvent;
 
 import java.time.LocalDate;
 
+
+import static BankManagement.BankAccount.isValidAcc;
+
 public class ADDController {
     @FXML
     private TextField StreetField;
@@ -53,13 +56,15 @@ public class ADDController {
     void addAcc(ActionEvent event) {
         BankAccount acc = new BankAccount(accID_Field.getText(),accNo_Field1.getText(),LocalDate.now(),typeField1.getText()) ;
         BankCustomer cust = new BankCustomer(custID_Field1.getText(),firstname_field.getText(),lastName_field.getText(),accID_Field.getText(),cityField.getText(),StreetField.getText(),mobileField.getText());
-        BankCustomer.getCustArrayFile().add(cust);
-        BankAccount.getAccArrayFile().add(acc);
+
         acc.setBalance(Double.parseDouble(balanceField.getText()));
         acc.setCustID(custID_Field1.getText());
+        BankCustomer.getCustArrayFile().add(cust);
+        BankAccount.getAccArrayFile().add(acc);
         BankCustomer.writeToCustFile();
         BankAccount.writeToFile();
         addLabel.setText("Account is added successfully!");
+        System.out.println(isValidAcc(acc.getAcctID()));
 
     }
 

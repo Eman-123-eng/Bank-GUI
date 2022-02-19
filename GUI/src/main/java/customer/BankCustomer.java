@@ -231,10 +231,10 @@ public class BankCustomer {
     }
 
     public static boolean isValidCust(String id) {
-        /*for (BankCustomer bankcustomer : customerArrayFile) {
+        for (BankCustomer bankcustomer : customerArrayFile) {
             if (Objects.equals(id, bankcustomer.getCustID()))
                 return true;
-        }*/
+        }
         return (getCustomer(id) != null);
     }
 
