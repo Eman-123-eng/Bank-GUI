@@ -11,7 +11,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import java.io.IOException;
 
 public class AdminController {
@@ -25,7 +26,57 @@ public class AdminController {
 
     @FXML
     private Button Manage, accStat, addBtn, deleteBtn, deposit, editBtn, transfer, transaction_Button, withdraw, exit;
+    @FXML
+    private MenuItem addAdmin;
 
+    @FXML
+    private MenuItem addUser;
+
+    @FXML
+    private Label adminName;
+
+
+    @FXML
+    private MenuItem deleteAdmin;
+
+    @FXML
+    private MenuItem deleteUser;
+
+    @FXML
+    private MenuItem editAdmin;
+
+    @FXML
+    private MenuItem editUser;
+
+    @FXML
+    void addAdmin(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addUser(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deleteAdmin(ActionEvent event) {
+
+    }
+
+    @FXML
+    void deleteUser(ActionEvent event) {
+
+    }
+
+    @FXML
+    void editAdmin(ActionEvent event) {
+
+    }
+
+    @FXML
+    void editUser(ActionEvent event) {
+
+    }
     @FXML
     void exit(ActionEvent event) {
         try {// this code to switch to another frame.
@@ -45,7 +96,7 @@ public class AdminController {
 
     @FXML
     void addBtn(ActionEvent event) throws IOException {
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("adminADD.fxml"));
+        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("addAcc.fxml"));
         Parent root1 = fxml1.load();
 
         contentArea.getChildren().removeAll();

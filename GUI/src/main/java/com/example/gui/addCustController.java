@@ -14,7 +14,7 @@ import java.time.LocalDate;
 
 import static BankManagement.BankAccount.isValidAcc;
 
-public class ADDController {
+public class addCustController {
     @FXML
     private TextField StreetField;
 
