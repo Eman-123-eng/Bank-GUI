@@ -59,5 +59,11 @@
          </font>
       </Label>
       <TextField fx:id="custID_Field1" layoutX="235.0" layoutY="211.0" prefHeight="25.0" prefWidth="166.0" />
+        <Label layoutX="68.0" layoutY="414.0" text="Post">
+            <font>
+                <Font name="System Bold Italic" size="15.0" />
+            </font>
+        </Label>
+        <TextField fx:id="post_field" layoutX="235.0" layoutY="410.0" prefHeight="25.0" prefWidth="166.0" />
     </children>
 </AnchorPane>
