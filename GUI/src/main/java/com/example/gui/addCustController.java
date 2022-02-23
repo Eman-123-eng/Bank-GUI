@@ -50,6 +50,9 @@ public class addCustController {
 
     @FXML
     private TextField typeField1;
+    @FXML
+    private TextField post_field;
+
 
 
     @FXML
