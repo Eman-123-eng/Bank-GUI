@@ -136,7 +136,7 @@ public class BankAccount {
                 accountCSVWriter.append(',');
                 String miniState = "";
                 for (String s : account.operations) {
-                    if(Objects.equals(s, " "))
+                    if (Objects.equals(s, " "))
                         continue;
                     miniState += s + " ; ";
                 }
@@ -154,6 +154,11 @@ public class BankAccount {
 
 
     public static boolean isValidAcc(String id) {
+        if (accountArrayFile == null) {
+            System.out.println("array is null, might reasons for the constructor");
+            return false;
+        }
+
         for (BankAccount bankAccount : accountArrayFile) {
             if (Objects.equals(id, bankAccount.getAcctID()))
                 return true;
@@ -162,6 +167,10 @@ public class BankAccount {
     }
 
     public static BankAccount getAccount(String ID) {
+        if (accountArrayFile == null) {
+            System.out.println("array is null, might reasons for the constructor");
+            return null;
+        }
         for (BankAccount account : BankAccount.accountArrayFile) {
             if (Objects.equals(account.getAcctID(), ID)) {
                 return account;
@@ -170,9 +179,9 @@ public class BankAccount {
         return null;
     }
 
-    public static BankAccount transToAcc(String accNumber){
-        for(BankAccount account : BankAccount.getAccArrayFile()){
-            if(Objects.equals(account.getAcctNo(), accNumber))
+    public static BankAccount transToAcc(String accNumber) {
+        for (BankAccount account : BankAccount.getAccArrayFile()) {
+            if (Objects.equals(account.getAcctNo(), accNumber))
                 return account;
         }
         return null;

@@ -1,5 +1,8 @@
 package com.example.gui;
 
+import BankManagement.BankAccount;
+import customer.BankCustomer;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,20 +41,20 @@ public class Server extends Thread {
     public void run() {
         running = true;
         while (running) {
-        try {
-            //the "accept" method waits for a new client connection and returns an individual socket (communication) for that connection
-            clientSocket = serverSocket.accept();
-            //Handle the connection  //Multithreaded programming
+            try {
+                //the "accept" method waits for a new client connection and returns an individual socket (communication) for that connection
+                clientSocket = serverSocket.accept();
+                //Handle the connection  //Multithreaded programming
 
-            //pass the socket to the requestHandler thread for processing
-            RequestHandler reqHandler = new RequestHandler(clientSocket);
-            reqHandler.start();
-            if (clientSocket.isClosed())
-                System.out.println("Client is closed");
-        } catch (IOException e) {
-            e.printStackTrace();
+                //pass the socket to the requestHandler thread for processing
+                RequestHandler reqHandler = new RequestHandler(clientSocket);
+                reqHandler.start();
+                if (clientSocket.isClosed())
+                    System.out.println("Client is closed");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-         }
     }
 
     public static void main(String[] args) {
@@ -82,6 +85,8 @@ public class Server extends Thread {
 
         Server server = new Server();
         server.startServer();
+        new BankAccount();
+        new BankCustomer();
 
         if (serverSocket.isClosed())
             System.out.println("Server is closed");
@@ -91,6 +96,10 @@ public class Server extends Thread {
     class RequestHandler extends Thread {
         private Socket clientSocket;
         String inputLine, outputLine;
+        String clientReq, clientData;
+        BufferedReader in;
+        PrintWriter out;
+        String[] arr;
 
         RequestHandler(Socket clientSocket) {
             this.clientSocket = clientSocket;
@@ -102,17 +111,22 @@ public class Server extends Thread {
                 System.out.println("Received a connection");
 
                 // Get input and output streams
-                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+                in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                out = new PrintWriter(clientSocket.getOutputStream(), true);
 
                 // Firstly, Write out to the client.
-                outputLine = "Server response";
+                /*outputLine = "Server response";
                 out.println(outputLine);
-                out.flush();
+                out.flush();*/
 
                 //Sending responses to the client until the client closes the connection
                 inputLine = in.readLine();
-                while (inputLine != null && inputLine.length() > 0) {
+                arr = inputLine.split(",");
+                clientReq = arr[0];
+                if (arr.length > 1)
+                    clientData = arr[1];
+
+                /*while (inputLine != null && inputLine.length() > 0) {
                     System.out.println("Client: " + inputLine);
                     if(inputLine.equals("1122")){
                         System.out.println("you can sign in");
@@ -124,7 +138,18 @@ public class Server extends Thread {
                     if (outputLine.equals("Bye"))
                         break;
                     inputLine = in.readLine();
+                }*/
+
+                System.out.println("Client sends " + clientReq);
+
+                if (clientReq.equals("Exit")) {
+                    System.out.println("Client sends exit");
+                    clientSocket.close();
+                    System.out.println("Connection closed");
+                    return;
                 }
+
+                handleReq();
 
                 out.close();
 
@@ -136,6 +161,50 @@ public class Server extends Thread {
             } catch (IOException e) {
                 System.out.println("Cannot listen on port " + "7777");
                 e.printStackTrace();
+            }
+        }
+
+        public String checkID(String id) {
+            if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
+                if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer
+                    System.out.println("You are a customer");
+                    return "Customer";
+                } else {
+                    System.out.println("You are an admin");
+                    return "Admin";
+                }
+            }
+            return null;
+        }
+
+        public void handleReq() {
+            switch (clientReq) {
+                case "signIn": {
+                    System.out.println("Server: go to sign in controller");
+                    if (clientData == null)
+                        out.println("Enter");
+                    String checked = checkID(clientData);
+                    if (checked == null)
+                        out.println("Incorrect");
+                    else if (checked.equals("Admin"))
+                        out.println("admin");
+                        // out.println("Server: you are an admin");
+                    else if (checked.equals("Customer"))
+                        out.println("customer");
+                        //out.println("Server: you are a customer");
+                    else
+                        out.println("Incorrectttt");
+                    out.flush();
+                    break;
+                }
+                case "signUp": {
+                    break;
+                }
+                default: {
+                    out.println("Server: Invalid input");
+                    out.flush();
+                    break;
+                }
             }
         }
     }

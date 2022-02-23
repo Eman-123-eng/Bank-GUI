@@ -134,13 +134,14 @@ public class MainController {
         stage2.show();
     }
 
-    private String checkID(String id) {
+    public static String checkID(String id) {
         System.out.println(BankAccount.isValidAcc(id));
+        MainController m = new MainController();
         if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
-            MainController.ID = id_field.getText();
+            MainController.ID = m.id_field.getText();
             if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer
                 //if (BankCustomer.isValidPass(String.valueOf(pass))) {
-                id_field.setText("");
+                m.id_field.setText("");
                 System.out.println("You are a customer");
                 return "Customer";
                 /*} else {
@@ -148,7 +149,7 @@ public class MainController {
                     JOptionPane.showMessageDialog(null, "This is an invalid account");
                 }*/
             } else {
-                id_field.setText("");
+                m.id_field.setText("");
                 //psw.setText("");
                 System.out.println("You are an admin");
                 return "Admin";
@@ -228,7 +229,6 @@ public class MainController {
             pp.show(signup_link.getScene().getWindow());
             delay.play();
         }
-
 
 
     }
