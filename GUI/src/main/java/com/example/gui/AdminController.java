@@ -34,6 +34,8 @@ public class AdminController {
 
     @FXML
     private Label adminName;
+    @FXML
+    private MenuItem deleteAcc;
 
 
     @FXML
@@ -41,7 +43,8 @@ public class AdminController {
 
     @FXML
     private MenuItem deleteUser;
-
+    @FXML
+    private MenuItem editAcc;
     @FXML
     private MenuItem editAdmin;
 
