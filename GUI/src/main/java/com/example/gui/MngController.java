@@ -45,7 +45,7 @@ public class MngController {
     private Button okBtn;
 
     @FXML
-    private StackPane contentArea;
+    public StackPane contentArea;
 
     @FXML
     private Button Manage,back, accStat, addBtn, deleteBtn, deposit, editBtn, transfer, transaction_Button, withdraw;
@@ -79,69 +79,39 @@ public class MngController {
 
     @FXML
     void addAdmin(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("addCust_Admin.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
+       setStackPane("addCust_Admin.fxml");
     }
 
     @FXML
     void addUser(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("addCust.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
-
+        setStackPane("addCust.fxml");
     }
 
     @FXML
     void deleteAdmin(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("adminDELETE.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
+       setStackPane("adminDELETE.fxml");
 
     }
 
     @FXML
     void deleteUser(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("userDELETE.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
+       setStackPane("userDELETE.fxml");
 
     }
 
     @FXML
     void editAdmin(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("editCust_Admin.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
-
+        setStackPane("editCust_Admin.fxml");
     }
 
     @FXML
     void editUser(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("editCust.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
+        setStackPane("editCust.fxml");
 
     }
     @FXML
     void editAcc(ActionEvent event) throws IOException{
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("editAcc.fxml"));
-        Parent root1 = fxml1.load();
-
-        contentArea.getChildren().removeAll();
-        contentArea.getChildren().setAll(root1);
+        setStackPane("editAcc.fxml");
 
     }
     @FXML
@@ -185,8 +155,8 @@ public class MngController {
     void okBtn(ActionEvent event) {
         id=ID.getText();
         adminDisplay(id);
-        adminName.setText("Welcome "+ Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getFirstName());
-        adminName.setVisible(true);
+     //   adminName.setText("Welcome "+ Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getFirstName());
+     //   adminName.setVisible(true);
     }
     public void adminDisplay(String id) {
         if(Objects.equals(Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getPost(),"Manager")){
@@ -238,5 +208,15 @@ public class MngController {
         }
 
     }
+    public StackPane getContentArea(){return contentArea;}
+
+    public void setStackPane(String file) throws IOException{
+        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource(file));
+        Parent root1 = fxml1.load();
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(root1);
+
+    }
+
 
 }

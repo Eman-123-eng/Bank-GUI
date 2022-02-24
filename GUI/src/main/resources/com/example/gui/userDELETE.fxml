@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="470.0" prefWidth="600.0" style="-fx-background-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.deleting.DELETEController">
+<AnchorPane prefHeight="470.0" prefWidth="600.0" style="-fx-background-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.deleting.userDeleteController">
    <children>
       <Label layoutX="91.0" layoutY="149.0" prefHeight="30.0" prefWidth="98.0" text="User ID :">
          <font>
@@ -20,7 +20,7 @@
       </Label>
       <TextField fx:id="Acc_ID" layoutX="239.0" layoutY="226.0" prefHeight="30.0" prefWidth="171.0" />
       <TextField fx:id="userID" layoutX="239.0" layoutY="149.0" prefHeight="30.0" prefWidth="171.0" />
-      <Button fx:id="deleteUserBtn" layoutX="410.0" layoutY="358.0" mnemonicParsing="false" onAction="#deleteBtn" prefHeight="36.0" prefWidth="138.0" style="-fx-background-radius: 30; -fx-background-color: #e3d0a7;" text="Delete Account" textFill="#141414">
+      <Button fx:id="deleteUserBtn" layoutX="410.0" layoutY="358.0" mnemonicParsing="false" onAction="#deleteUserBtn" prefHeight="36.0" prefWidth="138.0" style="-fx-background-radius: 30; -fx-background-color: #e3d0a7;" text="Delete Account" textFill="#141414">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>

@@ -1,14 +1,19 @@
 package com.example.gui.adding;
 
 import BankManagement.BankAccount;
+import com.example.gui.MngController;
 import customer.BankCustomer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.StackPane;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
 
@@ -21,8 +26,6 @@ public class addCustController {
     @FXML
     private TextField accID_Field;
 
-    @FXML
-    private TextField accNo_Field1;
 
     @FXML
     private Button addAcc;
@@ -48,25 +51,24 @@ public class addCustController {
     @FXML
     private TextField mobileField;
 
-    @FXML
-    private TextField typeField1;
-
 
 
 
     @FXML
-    void addAcc(ActionEvent event) {
-        BankAccount acc = new BankAccount(accID_Field.getText(),accNo_Field1.getText(),LocalDate.now(),typeField1.getText()) ;
-        BankCustomer cust = new BankCustomer(custID_Field1.getText(),firstname_field.getText(),lastName_field.getText(),accID_Field.getText(),cityField.getText(),StreetField.getText(),mobileField.getText());
+    void addAcc(ActionEvent event) throws IOException {
+        MngController m = new MngController();
+//        BankCustomer cust = new BankCustomer(custID_Field1.getText(),firstname_field.getText(),lastName_field.getText(),accID_Field.getText(),cityField.getText(),StreetField.getText(),mobileField.getText());
+//        BankCustomer.getCustArrayFile().add(cust);
+//        BankCustomer.writeToCustFile();
 
-        acc.setBalance(Double.parseDouble(balanceField.getText()));
-        acc.setCustID(custID_Field1.getText());
-        BankCustomer.getCustArrayFile().add(cust);
-        BankAccount.getAccArrayFile().add(acc);
-        BankCustomer.writeToCustFile();
-        BankAccount.writeToFile();
-        addLabel.setText("Account is added successfully!");
-        System.out.println(isValidAcc(acc.getAcctID()));
+//        FXMLLoader fxml1 = new FXMLLoader(m.getClass().getResource("addAcc.fxml"));
+//        Parent root1 = fxml1.load();
+         //m.setStackPane(s);
+         m.setStackPane("addAcc.fxml");
+//        m.getContentArea().getChildren().removeAll();
+//        m.getContentArea().getChildren().setAll(root1);
+        //addLabel.setText("Account is added successfully!");
+
 
     }
 
