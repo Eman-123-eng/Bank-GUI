@@ -1,47 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorInput?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="457" minWidth="799" prefHeight="457.0" prefWidth="800.0" style="-fx-pref-height: 457; -fx-pref-width: 799; -fx-min-height: 457; -fx-min-width: 799;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.MainController">
    <children>
-      <Pane prefHeight="457.0" prefWidth="439.0">
+      <Pane prefHeight="457.0" prefWidth="799.0">
          <children>
-            <ImageView fitHeight="457.0" fitWidth="439.0" pickOnBounds="true">
+            <ImageView fitHeight="457.0" fitWidth="799.0" pickOnBounds="true">
                <image>
-                  <Image url="@../../../unnamed.png" />
+                  <Image url="@../../../hello.jpeg" />
                </image>
             </ImageView>
-         </children>
-      </Pane>
-      <Pane layoutX="439.0" prefHeight="457.0" prefWidth="360.0" style="-fx-background-color: #FFF8DC;">
-         <children>
-            <Label layoutX="80.0" layoutY="128.0" prefHeight="25.0" prefWidth="27.0" text=" ID" underline="true">
+            <Label layoutX="474.0" layoutY="78.0" prefHeight="25.0" prefWidth="27.0" text=" ID" underline="true">
                <font>
-                  <Font name="System Bold Italic" size="16.0" />
+                  <Font name="System Bold Italic" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="id_field" layoutX="107.0" layoutY="153.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: #FFF8DC;" />
-            <Separator layoutX="107.0" layoutY="177.0" prefWidth="200.0" style="-fx-background-color: #000000;" />
-            <Button fx:id="signin" layoutX="157.0" layoutY="229.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="25.0" prefWidth="75.0" style="-fx-background-radius: 30; -fx-background-color: #DC143C;" text="Sign in" textFill="WHITE">
+            <TextField fx:id="id_field" layoutX="513.0" layoutY="118.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: rgba(101,206,245,0.74);" />
+            <Separator layoutX="513.0" layoutY="149.0" prefWidth="200.0" style="-fx-background-color: #000000;">
+               <effect>
+                  <ColorInput height="2.93" paint="#0d0d0d" width="199.31" />
+               </effect></Separator>
+
+            <Button fx:id="signin" layoutX="557.0" layoutY="289.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="25.0" prefWidth="97.0" style="-fx-background-radius: 30; -fx-background-color: #e3d0a7;" text="Sign in" textFill="#0d0d0d">
                <font>
-                  <Font name="System Bold Italic" size="13.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
             </Button>
-            <Label layoutX="70.0" layoutY="339.0" prefHeight="17.0" prefWidth="186.0" text="If you dont have account, please">
+            <Hyperlink fx:id="signup_link" layoutX="673.0" layoutY="369.0" onAction="#Signup" text="Sign up">
                <font>
-                  <Font name="System Bold Italic" size="12.0" />
+                  <Font name="System Bold Italic" size="15.0" />
+               </font></Hyperlink>
+            <Label layoutX="440.0" layoutY="373.0" prefHeight="21.0" prefWidth="233.0" text="If you dont have account, please">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Hyperlink fx:id="signup_link" layoutX="256.0" layoutY="336.0" onAction="#Signup" text="Sign up" />
-            <Label fx:id="exit" layoutX="333.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="23.0" prefWidth="13.0" text="X">
+            <Label fx:id="exit" layoutX="772.0" layoutY="14.0" onMouseClicked="#exit" prefHeight="23.0" prefWidth="13.0" text="X">
                <font>
                   <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                </font>
             </Label>
+            <Label layoutX="453.0" layoutY="182.0" prefHeight="30.0" prefWidth="97.0" text="Password" underline="true">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
+               </font>
+            </Label>
+            <Separator layoutX="513.0" layoutY="253.0" prefWidth="200.0" style="-fx-background-color: #000000;">
+               <effect>
+                  <ColorInput height="2.93" paint="#0d0d0d" width="199.31" />
+               </effect>
+            </Separator>
+            <PasswordField layoutX="513.0" layoutY="222.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: rgba(101,206,245,0.74);" />
          </children>
       </Pane>
    </children>
