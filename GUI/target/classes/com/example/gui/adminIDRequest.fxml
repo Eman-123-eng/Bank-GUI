@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="186.0" prefWidth="288.0" style="-fx-background-color: #FFFFFF; -fx-border-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.MngController">
     <children>
-        <Label layoutX="33.0" layoutY="24.0" prefHeight="29.0" prefWidth="212.0" text="Enter your ID ?!">
+        <Label layoutX="33.0" layoutY="24.0" prefHeight="29.0" prefWidth="212.0" text="Enter your personal ID ?!">
             <font>
                 <Font name="System Bold Italic" size="18.0" />
             </font>

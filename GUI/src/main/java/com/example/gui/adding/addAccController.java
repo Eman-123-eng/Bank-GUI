@@ -1,4 +1,4 @@
-package com.example.gui;
+package com.example.gui.adding;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,25 +9,25 @@ import javafx.scene.control.TextField;
 public class addAccController {
 
     @FXML
+    private TextField No_Field;
+
+    @FXML
     private TextField accID_Field;
-
-    @FXML
-    private TextField accountno_Field;
-
-    @FXML
-    private TextField accounttype_field;
-
-    @FXML
-    private TextField acountbalance_field;
 
     @FXML
     private Button addAcc;
 
     @FXML
     private Label addLabel;
-    @FXML
-    private TextField password_field;
 
+    @FXML
+    private Label add_Lbl;
+
+    @FXML
+    private TextField balance_field;
+
+    @FXML
+    private TextField typeField;
 
     @FXML
     void addAcc(ActionEvent event) {
@@ -35,4 +35,3 @@ public class addAccController {
     }
 
 }
-

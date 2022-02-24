@@ -5,15 +5,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="166.0" prefWidth="283.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.custAccDisplay_Controller">
+<AnchorPane prefHeight="166.0" prefWidth="283.0" style="-fx-background-color: #FFFFFF; -fx-border-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.custAccDisplay_Controller">
    <children>
-      <Label layoutX="54.0" layoutY="34.0" text="Do you want to sign out?" textFill="CRIMSON">
+      <Label layoutX="54.0" layoutY="34.0" text="Do you want to sign out?" textFill="#0d0d0d">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Button fx:id="signout" layoutX="99.0" layoutY="91.0" mnemonicParsing="false" onAction="#signout" prefHeight="28.0" prefWidth="72.0" style="-fx-background-color: #DC143C; -fx-background-radius: 20;" text="Sign out" textFill="WHITE">
+      <Button fx:id="signout" layoutX="99.0" layoutY="91.0" mnemonicParsing="false" onAction="#signout" prefHeight="28.0" prefWidth="82.0" style="-fx-background-color: #e3d0a7; -fx-background-radius: 20;" text="Sign out">
          <font>
             <Font name="System Bold Italic" size="13.0" />
          </font>

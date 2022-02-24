@@ -1,4 +1,4 @@
-package com.example.gui;
+package com.example.gui.adding;
 
 import BankManagement.BankAccount;
 import customer.BankCustomer;
@@ -50,8 +50,7 @@ public class addCustController {
 
     @FXML
     private TextField typeField1;
-    @FXML
-    private TextField post_field;
+
 
 
 

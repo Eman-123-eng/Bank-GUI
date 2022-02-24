@@ -25,7 +25,7 @@ public class AdminController {
     private StackPane contentArea;
 
     @FXML
-    private Button Manage, accStat, addBtn, deleteBtn, deposit, editBtn, transfer, transaction_Button, withdraw, exit;
+    private Button Manage, accStat, addBtn, deleteBtn, deposit, editBtn, transfer, transaction_Button, withdraw;
     @FXML
     private MenuItem addAdmin;
 
@@ -36,6 +36,9 @@ public class AdminController {
     private Label adminName;
     @FXML
     private MenuItem deleteAcc;
+    @FXML
+    private Label exit;
+
 
 
     @FXML
@@ -81,7 +84,11 @@ public class AdminController {
 
     }
     @FXML
-    void exit(ActionEvent event) {
+    void editAcc(ActionEvent event) {
+
+    }
+    @FXML
+    void exit(MouseEvent event) {
         try {// this code to switch to another frame.
             //((Node)event.getSource()).getScene().getWindow().hide();
             FXMLLoader fxml = new FXMLLoader(getClass().getResource("exit.fxml"));
@@ -99,7 +106,7 @@ public class AdminController {
 
     @FXML
     void addBtn(ActionEvent event) throws IOException {
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("addAcc.fxml"));
+        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("editAcc.fxml"));
         Parent root1 = fxml1.load();
 
         contentArea.getChildren().removeAll();

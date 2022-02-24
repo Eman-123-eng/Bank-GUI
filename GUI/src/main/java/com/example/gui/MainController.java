@@ -37,14 +37,14 @@ public class MainController {
     private Parent root, root2;
 
     @FXML
-    private TextField id_field, StreetField, cityField, fn_field, id_register, mobileField, ln_field;
+    private TextField id_field, StreetField, cityField, fn_field, id_register, mobileField, ln_field,psswrd_field;
     public static String ID;
 
     @FXML
     private Label exit;
 
     @FXML
-    private Button signin, createAcc, register_exit;
+    private Button signin;
 
     @FXML
     private Hyperlink signup_link;
@@ -55,22 +55,7 @@ public class MainController {
         System.exit(0);
     }
 
-    @FXML
-    void register_exit(ActionEvent event) {
-        try {// this code to switch to another frame.
-            ((Node) event.getSource()).getScene().getWindow().hide();
-            FXMLLoader fxml = new FXMLLoader(getClass().getResource("hello-view.fxml"));
-            root = fxml.load();
-            stage = new Stage();
-            scene = new Scene(root);
-            stage.initStyle(StageStyle.UNDECORATED);
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            System.out.print("this scene can't load");
-        }
 
-    }
 
     @FXML
     void buttonPressed(ActionEvent event) throws IOException {
@@ -83,7 +68,7 @@ public class MainController {
                 signin.getScene().getWindow().hide();
 
             } else if (Objects.equals(checked, "Admin")) {
-                showStage("AdminDisplay.fxml");
+                showStage("adminCheck.fxml");
                 signin.getScene().getWindow().hide();
 
             } else {
@@ -135,13 +120,14 @@ public class MainController {
     }
 
     public static String checkID(String id) {
-        System.out.println(BankAccount.isValidAcc(id));
-        MainController m = new MainController();
+        //System.out.println(BankAccount.isValidAcc(id));
+        System.out.println(BankAccount.getAccount(id).getCustID());
+        //MainController m = new MainController();
         if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
-            MainController.ID = m.id_field.getText();
-            if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer
+           // MainController.ID = m.id_field.getText();
+            if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(Objects.requireNonNull(BankAccount.getAccount(id)).getCustID())) { //thus, you are a customer
                 //if (BankCustomer.isValidPass(String.valueOf(pass))) {
-                m.id_field.setText("");
+                //m.id_field.setText("");
                 System.out.println("You are a customer");
                 return "Customer";
                 /*} else {
@@ -149,7 +135,7 @@ public class MainController {
                     JOptionPane.showMessageDialog(null, "This is an invalid account");
                 }*/
             } else {
-                m.id_field.setText("");
+                //m.id_field.setText("");
                 //psw.setText("");
                 System.out.println("You are an admin");
                 return "Admin";
@@ -158,51 +144,6 @@ public class MainController {
         return null;
     }
 
-    @FXML
-    void createAcc(MouseEvent event) {
-        System.out.print("0");
-//        if (BankCustomer.customerArrayFile != null) {
-//            BankCustomer newRow;
-//            newRow = new BankCustomer(id_register.getText(), firstname_field.getText(), secondName_field.getText(), cityField.getText(), null, StreetField.getText(), mobileField.getText());
-//            BankCustomer.customerArrayFile.add(newRow);
-//            try {
-//                customersCSVWriter = new BufferedWriter(new FileWriter("C:\\Users\\WIN 10\\Desktop\\Java-Bank-Project\\src\\CUSTOMER\\customers.csv"));
-//
-//                customersCSVWriter.write("Customer id");
-//                customersCSVWriter.append(','); //to add new column
-//                customersCSVWriter.write("customer FirstName");
-//                customersCSVWriter.append(',');
-//                customersCSVWriter.write("customer LastName");
-//                customersCSVWriter.append(',');
-//                customersCSVWriter.write("customer City");
-//                customersCSVWriter.append(',');
-//                customersCSVWriter.write("customer Street");
-//                customersCSVWriter.append(',');
-//                customersCSVWriter.write("customer Mobile");
-//                for (BankCustomer customer : BankCustomer.customerArrayFile) {
-//                    customersCSVWriter.append('\n'); //to add new row
-//                    customersCSVWriter.write(customer.getCustId());
-//                    customersCSVWriter.append(',');
-//                    customersCSVWriter.write(customer.getCustFirstName());
-//                    customersCSVWriter.append(',');
-//                    customersCSVWriter.write(customer.getCustLastName());
-//                    customersCSVWriter.append(',');
-//                    customersCSVWriter.write(customer.getCustCity());
-//                    customersCSVWriter.append(',');
-//                    customersCSVWriter.write(customer.getCustStreet());
-//                    customersCSVWriter.append(',');
-//                    customersCSVWriter.write(customer.getCustMobile());
-//
-//                }
-//                customersCSVWriter.flush();
-//                customersCSVWriter.close();
-//
-//            } catch (Exception ex) {
-//                System.out.println("There is error in writing: " + ex);
-//            }
-//        }
-
-    }
 
     @FXML
     void Signup(ActionEvent event) throws IOException {

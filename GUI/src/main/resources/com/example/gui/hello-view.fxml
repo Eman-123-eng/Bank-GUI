@@ -62,7 +62,7 @@
                   <ColorInput height="2.93" paint="#0d0d0d" width="199.31" />
                </effect>
             </Separator>
-            <PasswordField layoutX="513.0" layoutY="222.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: rgba(101,206,245,0.74);" />
+            <PasswordField fx:id="psswrd_field" layoutX="513.0" layoutY="222.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: rgba(101,206,245,0.74);" />
          </children>
       </Pane>
    </children>

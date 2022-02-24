@@ -1,4 +1,4 @@
-package com.example.gui;
+package com.example.gui.deleting;
 
 import BankManagement.BankAccount;
 import customer.BankCustomer;
@@ -22,19 +22,19 @@ public class DELETEController {
     private TextField Acc_ID;
 
     @FXML
-    private TextField Acc_no,adminID;
+    private TextField userID,adminAccID;
+
     @FXML
     private Label deleteLabel;
 
     @FXML
-    private Button deleteBtn;
+    private Button deleteBtn,deleteUserBtn;
     public static String id,no,admin;
 
     @FXML
     void deleteBtn(ActionEvent event) {
         id = Acc_ID.getText();
-        no = Acc_no.getText();
-        admin = adminID.getText();
+
 
         if (BankAccount.isValidAcc(id)) {
             BankAccount acc = BankAccount.getAccount(id);
@@ -42,7 +42,7 @@ public class DELETEController {
             BankCustomer me1 = BankCustomer.getAccbyAdminID(admin);
             BankCustomer ifCust = BankCustomer.getCustAccount(id);
             if (acc != null && Objects.equals(acc.getAcctID(), id)
-                    && Objects.equals(acc.getAcctNo(), no)) {
+                    ) {
                 if(!Objects.equals(me1.getPost(), "Manager")) {// if entered, it means he's an accountant not a manager
                     if (ifAdmin != null) {// if it entered it means that the account wanted to be edited is an admin acc.
                         if (Objects.equals(ifAdmin.getPost(), "Manager") || Objects.equals(ifAdmin.getPost(), "Accountant")) {// to check if it's an admin or Manager
@@ -105,7 +105,12 @@ public class DELETEController {
         }
 
     }
+    @FXML
+    void deleteUserBtn(ActionEvent event){
 
     }
+
+    }
+
 
 

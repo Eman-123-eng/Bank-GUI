@@ -1,4 +1,4 @@
-package com.example.gui;
+package com.example.gui.editing;
 
 import BankManagement.BankAccount;
 import customer.BankCustomer;
@@ -19,7 +19,7 @@ import static customer.BankCustomer.writeToCustFile;
 import static javafx.geometry.Pos.CENTER;
 
 
-public class EDITController {
+public class editAccController {
 
     @FXML
     private TextField Acc_ID;
@@ -49,6 +49,31 @@ public class EDITController {
 
     }
 
+    @FXML
+    private TextField No_Field;
+
+    @FXML
+    private TextField accID_Field;
+
+    @FXML
+    private Label addLabel;
+
+    @FXML
+    private Label add_Lbl;
+
+    @FXML
+    private TextField balance_field;
+
+    @FXML
+    private Button editAcc;
+
+    @FXML
+    private TextField typeField;
+
+    @FXML
+    void editAcc(ActionEvent event) {
+
+    }
 
     @FXML
     void editBtn(ActionEvent event) {
