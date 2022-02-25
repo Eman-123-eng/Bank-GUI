@@ -101,17 +101,17 @@ public class MngController {
 
     @FXML
     void editAdmin(ActionEvent event) throws IOException{
-        setStackPane("editCust_Admin.fxml");
+        show("editRequest.fxml");
     }
 
     @FXML
     void editUser(ActionEvent event) throws IOException{
-        setStackPane("editCust.fxml");
+        show("editRequestUSER.fxml");
 
     }
     @FXML
     void editAcc(ActionEvent event) throws IOException{
-        setStackPane("editAcc.fxml");
+        show("editRequestAdmin.fxml");
 
     }
     @FXML

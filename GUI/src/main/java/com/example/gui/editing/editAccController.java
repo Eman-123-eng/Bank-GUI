@@ -38,16 +38,7 @@ public class editAccController {
     @FXML
     private Button editBtn;
     public static String id,no,admin;
-    @FXML
-    private TextField ID;
 
-    @FXML
-    private Button okBtn;
-
-    @FXML
-    void okBtn(ActionEvent event) {
-
-    }
 
     @FXML
     private TextField No_Field;
