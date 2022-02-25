@@ -38,7 +38,7 @@ public class MainController {
 
     @FXML
     private TextField id_field, StreetField, cityField, fn_field, id_register, mobileField, ln_field,psswrd_field;
-    public static String ID;
+    public static String ID ;
 
     @FXML
     private Label exit;
@@ -62,6 +62,7 @@ public class MainController {
         try {// this code to switch to another frame.
 
             String checked = checkID(id_field.getText());
+
 
             if (Objects.equals(checked, "Customer")) {
                 showStage("custAccDisplay.fxml");

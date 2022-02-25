@@ -12,7 +12,6 @@ import java.util.Objects;
 
 public class BankCustomer {
     private String custID;
-    private String password = "123";
     private String firstName;
     private String lastName;
     private String acctID;
@@ -238,14 +237,6 @@ public class BankCustomer {
         return (getCustomer(id) != null);
     }
 
-    public static boolean isValidPass(String password) {
-        System.out.println("pass is " + password);
-        for (BankCustomer bankcustomer : customerArrayFile) {
-            if (Objects.equals(password, bankcustomer.getPassword()))
-                return true;
-        }
-        return false;
-    }
 
     //This method only deals with customers not consider admins
     public static BankCustomer getCustomer(String id) {
@@ -259,10 +250,6 @@ public class BankCustomer {
     // ---------- Getters ------------
     public String getCustID() {
         return custID;
-    }
-
-    public String getPassword() {
-        return password;
     }
 
     public String getPost() {
@@ -336,9 +323,6 @@ public class BankCustomer {
         custID = customerID;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public void setFirstName(String FirstName) {
         firstName = FirstName;

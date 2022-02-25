@@ -16,6 +16,7 @@ import java.util.Objects;
 public class BankAccount {
     private String acctID;
     private String custID;
+    private String acctpassword;
     private String acctNo;
     private LocalDate dateOpened;
     private double acctBalance;
@@ -76,10 +77,10 @@ public class BankAccount {
 
                 BankAccount newAccount; // ??????????????????????????? there is a question below
                 if (accountInfo.length == colCount) {
-                    newAccount = new BankAccount(accountInfo[0], accountInfo[1], LocalDate.now(), accountInfo[2]); // HOW to enhance this to be generic  col not by specifying the index of the array statically
-                    newAccount.setCustID(accountInfo[3]);
-                    newAccount.setBalance(new Double(accountInfo[4]));
-                    String[] miniStates = accountInfo[5].split(";");
+                    newAccount = new BankAccount(accountInfo[0],accountInfo[1], accountInfo[2], LocalDate.now(), accountInfo[3]); // HOW to enhance this to be generic  col not by specifying the index of the array statically
+                    newAccount.setCustID(accountInfo[4]);
+                    newAccount.setBalance(new Double(accountInfo[5]));
+                    String[] miniStates = accountInfo[6].split(";");
                     for (String s : miniStates)
                         newAccount.operations.add(s.trim());
                     accountArrayFile.add(newAccount);
@@ -99,11 +100,12 @@ public class BankAccount {
     }
 
     // public BankAccount(int accountId, String accountName, Date dateOpened, String accountDetails, int accountType, int customerId, int accountNumber) {
-    public BankAccount(String accountId, String accountNo, LocalDate dateOpened, String accountType) {
+    public BankAccount(String accountId,String password, String accountNo, LocalDate dateOpened, String accountType) {
         acctID = accountId;
         acctNo = accountNo;
         this.dateOpened = dateOpened;
         acctType = accountType;
+        acctpassword = password;
     }
 
 
@@ -113,6 +115,8 @@ public class BankAccount {
         try {
             BufferedWriter accountCSVWriter = new BufferedWriter(new FileWriter("src/main/java/BankManagement/Accounts.csv"));
             accountCSVWriter.write("ID");
+            accountCSVWriter.append(',');
+            accountCSVWriter.write("Password");
             accountCSVWriter.append(',');
             accountCSVWriter.write("Number");
             accountCSVWriter.append(',');
@@ -126,6 +130,8 @@ public class BankAccount {
             for (BankAccount account : BankAccount.accountArrayFile) {
                 accountCSVWriter.append('\n');
                 accountCSVWriter.append(account.getAcctID());
+                accountCSVWriter.append(',');
+                accountCSVWriter.append(account.getAcctPassword());
                 accountCSVWriter.append(',');
                 accountCSVWriter.append(account.getAcctNo());
                 accountCSVWriter.append(',');
@@ -168,6 +174,14 @@ public class BankAccount {
         return false;
     }
 
+    public static boolean isValidPass(String password) {
+        System.out.println("pass is " + password);
+        for (BankAccount bankAccount : accountArrayFile) {
+            if (Objects.equals(password, bankAccount.getAcctPassword()))
+                return true;
+        }
+        return false;
+    }
     public static BankAccount getAccount(String ID) {
         if (accountArrayFile == null) {
             System.out.println("array is null, might reasons for the constructor");
@@ -308,6 +322,9 @@ public class BankAccount {
     public String getAcctID() {
         return acctID;
     }
+    public String getAcctPassword() {
+        return acctpassword;
+    }
 
     public String getAcctNo() {
         return acctNo;
@@ -359,7 +376,9 @@ public class BankAccount {
     public void setAcctID(String accountId) {
         acctID = accountId;
     }
-
+    public void setAcctpassword(String password) {
+        acctpassword = password;
+    }
     public void setAcctNo(String accountNo) {
         acctNo = accountNo;
     }
