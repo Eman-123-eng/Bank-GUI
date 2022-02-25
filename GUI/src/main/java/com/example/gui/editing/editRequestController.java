@@ -1,7 +1,6 @@
 package com.example.gui.editing;
 
 import BankManagement.BankAccount;
-import com.example.gui.MngController;
 import customer.BankCustomer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,9 +15,6 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
-import static customer.BankCustomer.getAccbyAdminID;
-import static customer.BankCustomer.isValidCust;
-
 public class editRequestController {
     @FXML
     private TextField ID,ID_user,ID_admin;
@@ -29,13 +25,13 @@ public class editRequestController {
     private String id;
 
     public void show1(String loadFile) throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource(loadFile));
-        Parent root2 = fxml.load();
+        FXMLLoader fxml2 = new FXMLLoader(getClass().getResource(loadFile));
+        Parent root2 = fxml2.load();
         Stage stage2 = new Stage();
-        Scene scene2 = new Scene(root2);
+        //Scene scene2 = new Scene(root2);
         stage2.initModality(Modality.APPLICATION_MODAL);
         stage2.initStyle(StageStyle.UNDECORATED);
-        stage2.setScene(scene2);
+        stage2.setScene(new Scene(root2));
         stage2.show();
     }
 
@@ -43,7 +39,7 @@ public class editRequestController {
     void okBtn(ActionEvent event) throws IOException{
         id=ID.getText();
         if(BankAccount.isValidAcc(id)){
-            show1("editAcc.fxml");
+            show1("com/example/gui/editAcc.fxml");
         }
         else{
             System.out.print("can't find account");
@@ -54,7 +50,7 @@ public class editRequestController {
     void okBtn_user(ActionEvent event) throws IOException{
         id=ID_user.getText();
         if(BankCustomer.isValidCust(id)){
-            show1("editCust.fxml");
+            show1("com/example/gui/editCust.fxml");
         }
         else{
             System.out.print("can't find account");
@@ -65,7 +61,7 @@ public class editRequestController {
     void okBtn_admin(ActionEvent event) throws IOException{
         id=ID_admin.getText();
         if(BankCustomer.getAccbyAdminID(id)!=null){
-            show1("editCust_Admin.fxml");
+            show1("com/example/gui/editCust_Admin.fxml");
         }
         else{
             System.out.print("can't find account");

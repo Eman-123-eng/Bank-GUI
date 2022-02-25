@@ -101,7 +101,7 @@ public class MngController {
 
     @FXML
     void editAdmin(ActionEvent event) throws IOException{
-        show("editRequest.fxml");
+        show("editRequestAdmin.fxml");
     }
 
     @FXML
@@ -111,7 +111,7 @@ public class MngController {
     }
     @FXML
     void editAcc(ActionEvent event) throws IOException{
-        show("editRequestAdmin.fxml");
+        show("editRequest.fxml");
 
     }
     @FXML
