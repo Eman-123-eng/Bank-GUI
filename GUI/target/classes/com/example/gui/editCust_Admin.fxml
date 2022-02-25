@@ -13,32 +13,20 @@
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="firstname_field" layoutX="235.0" layoutY="52.0" prefHeight="25.0" prefWidth="166.0" />
+        <TextField fx:id="firstname_admin" layoutX="235.0" layoutY="52.0" prefHeight="25.0" prefWidth="166.0" />
         <Label layoutX="50.0" layoutY="103.0" prefHeight="28.0" prefWidth="93.0" text="Last name :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="lastName_field" layoutX="235.0" layoutY="104.0" prefHeight="25.0" prefWidth="166.0" />
-        <Label layoutX="68.0" layoutY="266.0" prefHeight="28.0" prefWidth="75.0" text="City :">
+        <TextField fx:id="lastName_admin" layoutX="235.0" layoutY="104.0" prefHeight="25.0" prefWidth="166.0" />
+        <Label layoutX="62.0" layoutY="272.0" prefHeight="28.0" prefWidth="75.0" text="Mobile :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="59.0" layoutY="314.0" prefHeight="28.0" prefWidth="75.0" text="Street :">
-            <font>
-                <Font name="System Bold Italic" size="15.0" />
-            </font>
-        </Label>
-        <Label layoutX="59.0" layoutY="367.0" prefHeight="28.0" prefWidth="75.0" text="Mobile :">
-            <font>
-                <Font name="System Bold Italic" size="15.0" />
-            </font>
-        </Label>
-        <TextField fx:id="cityField" layoutX="235.0" layoutY="267.0" prefHeight="25.0" prefWidth="166.0" />
-        <TextField fx:id="StreetField" layoutX="235.0" layoutY="315.0" prefHeight="25.0" prefWidth="166.0" />
-        <TextField fx:id="mobileField" layoutX="235.0" layoutY="368.0" prefHeight="25.0" prefWidth="166.0" />
-        <Button fx:id="editBtn" layoutX="434.0" layoutY="456.0" mnemonicParsing="false" onAction="#editBtn" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: #e3d0a7; -fx-background-radius: 30;" text="Edit" textFill="#070707">
+        <TextField fx:id="mobile_admin" layoutX="235.0" layoutY="274.0" prefHeight="25.0" prefWidth="166.0" />
+        <Button fx:id="editBtn_admin" layoutX="434.0" layoutY="456.0" mnemonicParsing="false" onAction="#editBtn_admin" prefHeight="28.0" prefWidth="118.0" style="-fx-background-color: #e3d0a7; -fx-background-radius: 30;" text="Edit" textFill="#070707">
             <font>
                 <Font name="System Bold Italic" size="13.0" />
             </font>
@@ -48,8 +36,8 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="accID_Field" disable="true" layoutX="235.0" layoutY="163.0" prefHeight="25.0" prefWidth="166.0" />
-      <Label fx:id="addLabel" layoutX="62.0" layoutY="435.0" prefHeight="42.0" prefWidth="262.0">
+      <TextField fx:id="accID_admin" disable="true" layoutX="235.0" layoutY="163.0" prefHeight="25.0" prefWidth="166.0" />
+      <Label fx:id="admin_lbl" layoutX="62.0" layoutY="435.0" prefHeight="42.0" prefWidth="262.0">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Label>
@@ -58,12 +46,12 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="custID_Field1" disable="true" layoutX="235.0" layoutY="211.0" prefHeight="25.0" prefWidth="166.0" />
-        <Label layoutX="68.0" layoutY="414.0" text="Post">
+      <TextField fx:id="adminID" disable="true" layoutX="235.0" layoutY="211.0" prefHeight="25.0" prefWidth="166.0" />
+        <Label layoutX="79.0" layoutY="337.0" prefHeight="21.0" prefWidth="41.0" text="Post :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <TextField fx:id="post_field" layoutX="235.0" layoutY="410.0" prefHeight="25.0" prefWidth="166.0" />
+        <TextField fx:id="post_field" layoutX="235.0" layoutY="335.0" prefHeight="25.0" prefWidth="166.0" />
     </children>
 </AnchorPane>

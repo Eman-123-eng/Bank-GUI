@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="470.0" prefWidth="600.0" style="-fx-background-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.deleting.DELETEController">
+<AnchorPane prefHeight="470.0" prefWidth="600.0" style="-fx-background-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.deleting.userDeleteController">
    <children>
       <Label layoutX="91.0" layoutY="149.0" prefHeight="30.0" prefWidth="98.0" text="User ID :">
          <font>

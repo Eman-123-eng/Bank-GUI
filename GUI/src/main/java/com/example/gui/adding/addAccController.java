@@ -29,7 +29,7 @@ public class addAccController {
     private Label add_Lbl;
 
     @FXML
-    private TextField balance_field;
+    private TextField balance_field,accPsswrd_Field1;
 
     @FXML
     private TextField typeField;
@@ -37,7 +37,7 @@ public class addAccController {
     @FXML
     void addAcc(ActionEvent event) {
         try {
-            BankAccount acc = new BankAccount(accID_Field.getText(), No_Field.getText(), LocalDate.now(), typeField.getText());
+            BankAccount acc = new BankAccount(accID_Field.getText(),accPsswrd_Field1.getText(), No_Field.getText(), LocalDate.now(), typeField.getText());
             acc.setBalance(Double.parseDouble(balance_field.getText()));
             acc.setCustID(Objects.requireNonNull(BankCustomer.getCustAccount(acc.getAcctID())).getCustID());
             acc.getOperations().add(String.valueOf(acc.getDateOpened()));

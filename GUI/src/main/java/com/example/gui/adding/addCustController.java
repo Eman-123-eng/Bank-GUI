@@ -74,6 +74,9 @@ public class addCustController {
 
     @FXML
     void addAcc(ActionEvent event) throws IOException {
+        BankCustomer usr = new BankCustomer(custID_Field1.getText(),firstname_field.getText(),lastName_field.getText(),accID_Field.getText(),cityField.getText(),StreetField.getText(),mobileField.getText());
+        BankCustomer.getCustArrayFile().add(usr);
+        BankCustomer.writeToCustFile();
         FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
         Parent root = loader.load();
         parentCont = loader.getController();

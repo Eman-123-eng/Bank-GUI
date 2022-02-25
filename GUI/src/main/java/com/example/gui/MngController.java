@@ -93,6 +93,7 @@ public class MngController {
 
     public void initialize() throws IOException {
         System.out.println("initial in mngCont");
+
     }
 
     @FXML

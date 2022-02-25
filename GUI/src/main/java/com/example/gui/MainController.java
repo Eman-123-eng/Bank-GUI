@@ -149,7 +149,8 @@ public class MainController {
     @FXML
     void Signup(ActionEvent event) throws IOException {
         System.out.print("sign up is clicket\n");
-        Label l = new Label("Please visit our Bank to open your account!");
+        Label l = new Label("Thanks for requesting registeration,\n" +
+                "please visit our Bank to complete the process!");
         l.setStyle("-fx-background-color: white;");
         l.setFont(new Font("System Bold Italic", 16));
         l.setMinWidth(200);

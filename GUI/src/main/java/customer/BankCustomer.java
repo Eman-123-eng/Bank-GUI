@@ -316,6 +316,13 @@ public class BankCustomer {
         }
         return null;
     }
+    public static BankCustomer getAccbyCustID(String id) {
+        for (BankCustomer bankcustomer : customerArrayFile) {
+            if (Objects.equals(id, bankcustomer.getCustID()))
+                return bankcustomer;
+        }
+        return null;
+    }
 
     //-------setters------------
 

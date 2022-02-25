@@ -38,13 +38,14 @@ public class userDeleteController {
 
         if (BankAccount.isValidAcc(id)) {
             BankAccount acc = BankAccount.getAccount(id);
-            BankCustomer person = BankCustomer.getCustAccount(id);
+            BankCustomer person = BankCustomer.getAccbyCustID(usr);
             if (acc != null && Objects.equals(acc.getAcctID(), id)
                     && Objects.equals(Objects.requireNonNull(person).getCustID(), usr)) {
                 BankAccount.getAccArrayFile().remove(acc);
                 BankCustomer.getCustArrayFile().remove(person);
                 BankAccount.writeToFile();
                 BankCustomer.writeToCustFile();
+
                 deleteLabel.setText("The account is deleted successfully!");
 
             } else {
