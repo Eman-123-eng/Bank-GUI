@@ -7,11 +7,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -51,24 +53,44 @@ public class addCustController {
     @FXML
     private TextField mobileField;
 
+    private MngController parentCont;
+    Stage window;
 
+    public void setParent(MngController controller) {
+        parentCont = controller;
+    }
 
+    public addCustController getThis() {
+        return this;
+    }
+
+    public void initialize() {
+        System.out.println("child ");
+    }
 
     @FXML
     void addAcc(ActionEvent event) throws IOException {
-        MngController m = new MngController();
-//        BankCustomer cust = new BankCustomer(custID_Field1.getText(),firstname_field.getText(),lastName_field.getText(),accID_Field.getText(),cityField.getText(),StreetField.getText(),mobileField.getText());
-//        BankCustomer.getCustArrayFile().add(cust);
-//        BankCustomer.writeToCustFile();
+        StackPane sp = new StackPane();
+        Button b = new Button("Hellooooooooooooooo");
+        FXMLLoader loader2 = new FXMLLoader(MngController.class.getResource("addAcc.fxml"));
+        Parent root2 = loader2.load();
 
-//        FXMLLoader fxml1 = new FXMLLoader(m.getClass().getResource("addAcc.fxml"));
-//        Parent root1 = fxml1.load();
-         //m.setStackPane(s);
-         m.setStackPane("addAcc.fxml");
-//        m.getContentArea().getChildren().removeAll();
-//        m.getContentArea().getChildren().setAll(root1);
-        //addLabel.setText("Account is added successfully!");
+        sp.getChildren().add(b);
+        sp.getChildren().add(root2);
+        FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
+        Parent root = loader.load();
+        parentCont = loader.getController();
+        sp.setId("stack");
+        parentCont.back.setText("go  ");
+        System.out.println(parentCont.back.getText());
 
+        parentCont.borderP.setCenter(sp);
+        System.out.println(parentCont.borderP.getCenter().getId());
+        System.out.println(parentCont.borderP.getTop().getId());
+        Scene scene = new Scene(root);
+        window = new Stage();
+        window.setScene(scene);
+        window.show();
 
     }
 

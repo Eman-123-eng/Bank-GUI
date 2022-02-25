@@ -1,5 +1,6 @@
 package com.example.gui;
 
+import com.example.gui.adding.addCustController;
 import customer.BankCustomer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -48,7 +50,13 @@ public class MngController {
     public StackPane contentArea;
 
     @FXML
-    private Button Manage,back, accStat, addBtn, deleteBtn, deposit, editBtn, transfer, transaction_Button, withdraw;
+    public BorderPane borderP = new BorderPane();
+
+    @FXML
+    public Button back;
+
+    @FXML
+    private Button Manage, accStat, addBtn, deleteBtn, deposit, editBtn, transfer, transaction_Button, withdraw;
     @FXML
     private MenuItem addAdmin;
 
@@ -57,12 +65,12 @@ public class MngController {
 
     @FXML
     private Label adminName;
+
     @FXML
     private MenuItem deleteAcc;
+
     @FXML
     private Label exit;
-
-
 
     @FXML
     private MenuItem deleteAdmin;
@@ -77,6 +85,12 @@ public class MngController {
     @FXML
     private MenuItem editUser;
 
+    private addCustController cont;
+
+    public void initialize() throws IOException {
+        System.out.println("initial in mngCont");
+    }
+
     @FXML
     void addAdmin(ActionEvent event) throws IOException{
        setStackPane("addCust_Admin.fxml");
@@ -84,8 +98,48 @@ public class MngController {
 
     @FXML
     void addUser(ActionEvent event) throws IOException{
-        setStackPane("addCust.fxml");
+        addPane();
+        //setStackPane("addCust.fxml");
     }
+    public void addPane() throws IOException {
+
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("addCust.fxml"));
+        Parent root2 = fxml.load();
+
+        StackPane sp = new StackPane();
+        //System.out.println(borderP.getCenter().getId());
+        Button b = new Button("Hello");
+        sp.getChildren().add(b);
+
+        borderP.setCenter(sp);
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        sp.getChildren().remove(b);
+        sp.getChildren().add(root2);
+        borderP.setCenter(sp);
+        System.out.println(borderP.getCenter().getId());
+
+    }
+
+    public void addPane2() throws IOException {
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("addCust.fxml"));
+        Parent root2 = fxml.load();
+        StackPane sp = new StackPane();
+        System.out.println(this.borderP.getCenter().getId());
+        Button b = new Button("Hello");
+        sp.getChildren().add(b);
+
+        borderP.setCenter(sp);
+
+        System.out.println(borderP.getCenter().getId());
+    }
+
+    /*static void addAccount(ActionEvent event) throws IOException{
+            setStackPane("addAcc.fxml");
+        }*/
 
     @FXML
     void deleteAdmin(ActionEvent event) throws IOException{
@@ -136,6 +190,9 @@ public class MngController {
         stage2.initStyle(StageStyle.UNDECORATED);
         stage2.setScene(new Scene(root2));
         stage2.show();
+
+        cont = fxml.getController();
+        cont.setParent(this);
     }
 
 
@@ -213,6 +270,7 @@ public class MngController {
     public void setStackPane(String file) throws IOException{
         FXMLLoader fxml1 = new FXMLLoader(getClass().getResource(file));
         Parent root1 = fxml1.load();
+        System.out.println(root1.getChildrenUnmodifiable().size());
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(root1);
 
