@@ -74,24 +74,23 @@ public class addCustController {
 
     @FXML
     void addAcc(ActionEvent event) throws IOException {
-        StackPane sp = new StackPane();
-        Button b = new Button("Hellooooooooooooooo");
-        FXMLLoader loader2 = new FXMLLoader(MngController.class.getResource("addAcc.fxml"));
-        Parent root2 = loader2.load();
-
-        sp.getChildren().add(b);
-        sp.getChildren().add(root2);
         FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
         Parent root = loader.load();
         parentCont = loader.getController();
+
+        FXMLLoader loadAcc = new FXMLLoader(MngController.class.getResource("addAcc.fxml"));
+        Parent rootAcc = loadAcc.load();
+
+        StackPane sp = new StackPane();
+
+        sp.getChildren().add(rootAcc);
+
         sp.setId("stack");
-        parentCont.back.setText("go  ");
-        System.out.println(parentCont.back.getText());
+
+        parentCont.back.setText("go  "); //to be removed
 
         parentCont.borderP.setCenter(sp);
-        System.out.println(parentCont.borderP.getCenter().getId());
-        System.out.println(parentCont.borderP.getTop().getId());
-        System.out.println(parentCont.borderP.getScene() + " dc");
+        
         stage = (Stage) ( (Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
