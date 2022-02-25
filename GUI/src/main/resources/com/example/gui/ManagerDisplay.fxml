@@ -32,6 +32,7 @@
                </children></Pane>
          </top>
          <center>
+            <StackPane fx:id="contentArea" prefHeight="521.0" prefWidth="642.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER" />
          </center>
          <left>
             <VBox prefHeight="217.0" prefWidth="219.0" BorderPane.alignment="CENTER">
