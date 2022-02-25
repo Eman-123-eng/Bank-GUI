@@ -192,6 +192,7 @@ public class Server extends Thread {
         private void deposit(double amt) {
             myAcc.setBalance(myAcc.getBalance() + amt);
             System.out.println(myAcc.getAcctID() + " Id");
+
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy   HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
 
@@ -202,11 +203,27 @@ public class Server extends Thread {
         private void withdraw(double amt) {
             myAcc.setBalance(myAcc.getBalance() - amt);
             System.out.println(myAcc.getAcctID() + " Id");
+
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy   HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
 
             if (Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
             myAcc.getOperations().add(myAcc.getOperations().size(), "Withdrawal:" + amt + "-- at:" + dtf.format(now));
+        }
+
+        private void transfer(String senderID, double amount, String receiver) {
+            if (BankAccount.transToAcc(senderID, amount, receiver)) {
+                System.out.println("Transfer complete");
+
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy   HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+
+                if (Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
+                myAcc.getOperations().add(myAcc.getOperations().size(), "Transfer:" + amount + "-- at:" + dtf.format(now));
+
+            } else
+                System.out.println("Transfer fails");
+
         }
 
         public void handleReq() {
@@ -256,8 +273,21 @@ public class Server extends Thread {
                         break;
                     }
 
-                    case "balance":{
+                    case "balance": {
                         outStream.writeObject("Server: Balance," + myAcc.getBalance());
+                        outStream.flush();
+                        break;
+                    }
+
+                    case "transfer": {
+                        if (clientData == null) {
+                            outStream.writeObject("Enter client amount");
+                            return;
+                        }
+                        String[] trans = clientData.split(" -- ");
+                        transfer(myAcc.getAcctID(), Double.parseDouble(trans[0]), trans[1]);
+                        BankAccount.writeToFile();
+                        outStream.writeObject("Server: Transfer," + " to acc " + trans[1]);
                         outStream.flush();
                         break;
                     }
@@ -265,11 +295,7 @@ public class Server extends Thread {
                     case "statement": {
                         System.out.println("mini stattement");
 
-                        ArrayList<String> ar = new ArrayList<>();
-                        ar.add(0, "mini");
-                        ar.add(1, "stat");
-                        ar.add(2, "ment");
-                        outStream.writeObject(ar);
+                        outStream.writeObject(myAcc.getOperations());
                         outStream.flush();
 
                         break;

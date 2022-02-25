@@ -81,7 +81,7 @@ public class BankAccount {
                     newAccount.setBalance(new Double(accountInfo[4]));
                     String[] miniStates = accountInfo[5].split(";");
                     for (String s : miniStates)
-                        newAccount.operations.add(s);
+                        newAccount.operations.add(s.trim());
                     accountArrayFile.add(newAccount);
                 }
                 // System.out.println(arrayFile);
@@ -109,6 +109,7 @@ public class BankAccount {
 
     //----------- Methods -------------
     public static void writeToFile() {
+
         try {
             BufferedWriter accountCSVWriter = new BufferedWriter(new FileWriter("src/main/java/BankManagement/Accounts.csv"));
             accountCSVWriter.write("ID");
@@ -150,6 +151,7 @@ public class BankAccount {
         } catch (Exception ex) {
             System.out.println("There is error in writing in file: " + ex);
         }
+        System.out.println("Writing to acc file");
     }
 
 
@@ -185,6 +187,32 @@ public class BankAccount {
                 return account;
         }
         return null;
+    }
+
+    public static boolean transToAcc(String senderID, double amount, String receiverAccNum) {
+        BankAccount reciever = null, sender = null;
+        for (BankAccount account : BankAccount.getAccArrayFile()) {
+            if (Objects.equals(account.getAcctID(), senderID)) {
+                sender = account;
+                break;
+            }
+        }
+
+        for (BankAccount account : BankAccount.getAccArrayFile()) {
+            if (Objects.equals(account.getAcctNo(), receiverAccNum)) {
+                reciever = account;
+                break;
+            }
+        }
+
+        if (sender != null && reciever != null) {
+            if (sender.getBalance() >= amount) {
+                sender.setBalance(sender.getBalance() - amount);
+                reciever.setBalance(reciever.getBalance() + amount);
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void arrayFileDisplay() {

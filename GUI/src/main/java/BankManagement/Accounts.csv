@@ -1,5 +1,5 @@
 ID,Number,Type,Customer ID,Balance,Mini-Statement
-1,1111,Checking,10,308401.0,Deposition:200.0-- at:15/02/2022 05:15:28                                   ;                               Deposition:8511.0-- at:15/02/2022   17:10:15                               ;                              Withdrawal:1110.0-- at:15/02/2022   17:18:01                              ;                 Deposition:1000.0-- at:19/02/2022   02:10:51                 ; 
-1,1111,Checking,10,307401.0,Deposition:200.0-- at:15/02/2022 05:15:28                                 ;                             Deposition:8511.0-- at:15/02/2022   17:10:15                             ;                            Withdrawal:1110.0-- at:15/02/2022   17:18:01                            ; 
-3,3333,kcsld,20,70000.0,Deposition:200.0-- at:15/02/2022 05:15:28                                 ;
-5,5555,jvsdfjb,50,20000,Deposition:200.0-- at:15/02/2022 05:15:28
+1,1111,Checking,10,308401.0,Deposition:200.0-- at:15/02/2022 05:15:28 ; Deposition:8511.0-- at:15/02/2022   17:10:15 ; Withdrawal:1110.0-- at:15/02/2022   17:18:01 ; Deposition:1000.0-- at:19/02/2022   02:10:51 ;  ; 
+1,1111,Checking,10,307401.0,Deposition:200.0-- at:15/02/2022 05:15:28 ; Deposition:8511.0-- at:15/02/2022   17:10:15 ; Withdrawal:1110.0-- at:15/02/2022   17:18:01 ;  ; 
+3,3333,kcsld,20,70550.0,Deposition:200.0-- at:15/02/2022 05:15:28 ;  ; 
+5,5555,jvsdfjb,50,21050.0,Deposition:200.0-- at:15/02/2022 05:15:28 ; Withdrawal:500.0-- at:25/02/2022   16:56:03 ; Deposition:2000.0-- at:25/02/2022   16:56:19 ; Deposition:100.0-- at:25/02/2022   17:38:38 ; Transfer:500.0-- at:25/02/2022   17:39:03 ; 
