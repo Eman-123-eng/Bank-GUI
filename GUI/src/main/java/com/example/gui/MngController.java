@@ -31,8 +31,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class MngController {
-    private Stage stage2,stage;
-    private Parent root2,root;
+
     private static String id;
 
     @FXML
@@ -85,6 +84,11 @@ public class MngController {
     @FXML
     private MenuItem editUser;
 
+    public Stage stage2,stage;
+    public Parent root2,root;
+
+    public Scene scene2;
+
     private addCustController cont;
 
     public void initialize() throws IOException {
@@ -93,35 +97,66 @@ public class MngController {
 
     @FXML
     void addAdmin(ActionEvent event) throws IOException{
-       setStackPane("addCust_Admin.fxml");
+        addPane("addCust_Admin.fxml");
     }
 
     @FXML
     void addUser(ActionEvent event) throws IOException{
-        addPane();
+        addPane("addCust.fxml");
         //setStackPane("addCust.fxml");
     }
-    public void addPane() throws IOException {
 
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("addCust.fxml"));
+
+    /*static void addAccount(ActionEvent event) throws IOException{
+            setStackPane("addAcc.fxml");
+        }*/
+
+    @FXML
+    void deleteAdmin(ActionEvent event) throws IOException{
+        addPane("adminDELETE.fxml");
+    }
+
+    @FXML
+    void deleteUser(ActionEvent event) throws IOException{
+        addPane("userDELETE.fxml");
+    }
+
+    @FXML
+    void editAdmin(ActionEvent event) throws IOException{
+        show("editRequestAdmin.fxml");
+    }
+
+    @FXML
+    void editUser(ActionEvent event) throws IOException{
+        show("editRequestUSER.fxml");
+
+    }
+
+    @FXML
+    void editAcc(ActionEvent event) throws IOException{
+        show("editRequest.fxml");
+    }
+
+    @FXML
+    void exit(MouseEvent event) {
+        try {// this code to switch to another frame.
+            show("exit.fxml");
+        } catch (Exception e) {
+            System.out.print("this scene can't load");
+        }
+    }
+
+
+    public void addPane(String fileName) throws IOException {
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource(fileName));
         Parent root2 = fxml.load();
 
         StackPane sp = new StackPane();
-        //System.out.println(borderP.getCenter().getId());
-        Button b = new Button("Hello");
-        sp.getChildren().add(b);
 
-        borderP.setCenter(sp);
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        sp.getChildren().remove(b);
         sp.getChildren().add(root2);
+
         borderP.setCenter(sp);
         System.out.println(borderP.getCenter().getId());
-
     }
 
     public void addPane2() throws IOException {
@@ -137,58 +172,15 @@ public class MngController {
         System.out.println(borderP.getCenter().getId());
     }
 
-    /*static void addAccount(ActionEvent event) throws IOException{
-            setStackPane("addAcc.fxml");
-        }*/
-
-    @FXML
-    void deleteAdmin(ActionEvent event) throws IOException{
-       setStackPane("adminDELETE.fxml");
-
-    }
-
-    @FXML
-    void deleteUser(ActionEvent event) throws IOException{
-       setStackPane("userDELETE.fxml");
-
-    }
-
-    @FXML
-    void editAdmin(ActionEvent event) throws IOException{
-        show("editRequestAdmin.fxml");
-    }
-
-    @FXML
-    void editUser(ActionEvent event) throws IOException{
-        show("editRequestUSER.fxml");
-
-    }
-    @FXML
-    void editAcc(ActionEvent event) throws IOException{
-        show("editRequest.fxml");
-
-    }
-    @FXML
-    void exit(MouseEvent event) {
-        try {// this code to switch to another frame.
-            show("exit.fxml");
-        } catch (Exception e) {
-            System.out.print("this scene can't load");
-        }
-    }
-
-
-
-
 
     public void show(String loadFile) throws IOException {
         FXMLLoader fxml = new FXMLLoader(getClass().getResource(loadFile));
         root2 = fxml.load();
         stage2 = new Stage();
-        //scene2 = new Scene(root2);
+        scene2 = new Scene(root2);
         stage2.initModality(Modality.APPLICATION_MODAL);
         stage2.initStyle(StageStyle.UNDECORATED);
-        stage2.setScene(new Scene(root2));
+        stage2.setScene(scene2);
         stage2.show();
 
         cont = fxml.getController();

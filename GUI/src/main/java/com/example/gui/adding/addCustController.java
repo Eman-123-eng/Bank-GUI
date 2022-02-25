@@ -6,6 +6,7 @@ import customer.BankCustomer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -54,7 +55,10 @@ public class addCustController {
     private TextField mobileField;
 
     private MngController parentCont;
-    Stage window;
+    Stage stage;
+    Scene scene;
+    Parent root;
+
 
     public void setParent(MngController controller) {
         parentCont = controller;
@@ -87,10 +91,11 @@ public class addCustController {
         parentCont.borderP.setCenter(sp);
         System.out.println(parentCont.borderP.getCenter().getId());
         System.out.println(parentCont.borderP.getTop().getId());
-        Scene scene = new Scene(root);
-        window = new Stage();
-        window.setScene(scene);
-        window.show();
+        System.out.println(parentCont.borderP.getScene() + " dc");
+        stage = (Stage) ( (Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
 
