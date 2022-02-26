@@ -110,5 +110,14 @@ public class custAccDisplay_Controller {
         }
     }
 
+    @FXML
+    void display(ActionEvent event) throws IOException{
+        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("accDetails.fxml"));
+        Parent root1 = fxml1.load();
+
+        contentArea.getChildren().removeAll();
+        contentArea.getChildren().setAll(root1);
+    }
+
 }
 

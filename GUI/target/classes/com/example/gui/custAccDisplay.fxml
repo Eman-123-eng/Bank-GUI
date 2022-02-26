@@ -9,47 +9,52 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="521.0" prefWidth="820.0" style="-fx-background-position: Generate Center;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.custAccDisplay_Controller">
+<AnchorPane prefHeight="543.0" prefWidth="897.0" style="-fx-background-position: Generate Center;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.custAccDisplay_Controller">
    <children>
-      <BorderPane layoutX="-1.0" layoutY="-1.0" prefHeight="521.0" prefWidth="898.0" style="-fx-background-color: #FFF8DC;">
+      <BorderPane layoutX="-1.0" layoutY="-1.0" prefHeight="542.0" prefWidth="898.0" style="-fx-background-color: #FFF8DC;">
          <left>
             <VBox alignment="TOP_CENTER" prefHeight="377.0" prefWidth="229.0" style="-fx-background-color: #FAEBD7;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="deposit" mnemonicParsing="false" onAction="#deposit" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: V;" text="Deposit" textFill="#5e5454">
+                  <Button fx:id="deposit" mnemonicParsing="false" onAction="#deposit" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #f5e4ca;" text="Deposit" textFill="#5e5454">
                      <font>
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="withdraw" mnemonicParsing="false" onAction="#withdraw" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #FAEBD7;" text="Withdraw" textFill="#5e5454">
+                  <Button fx:id="withdraw" mnemonicParsing="false" onAction="#withdraw" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #f5e4ca;" text="Withdraw" textFill="#5e5454">
                      <font>
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="accStat" mnemonicParsing="false" onAction="#accStat" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #FAEBD7;" text="Account Statement" textFill="#5e5454">
+                  <Button fx:id="accStat" mnemonicParsing="false" onAction="#accStat" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #f5e4ca;" text="Account Statement" textFill="#5e5454">
                      <font>
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Trans" mnemonicParsing="false" onAction="#Trans" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #FAEBD7;" text="Transfer" textFill="#5e5454">
+                  <Button fx:id="Trans" mnemonicParsing="false" onAction="#Trans" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #f5e4ca;" text="Transfer" textFill="#5e5454">
                      <font>
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Button>
-                  <AnchorPane prefHeight="253.0" prefWidth="230.0">
+                  <AnchorPane prefHeight="285.0" prefWidth="229.0" style="-fx-background-color: #f5e4ca;">
                      <children>
-                        <Button fx:id="back" layoutX="27.0" layoutY="214.0" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: #DC143C; -fx-background-radius: 30;" text="Back" textFill="#fffbfb">
+                        <Button fx:id="back" layoutX="14.0" layoutY="243.0" mnemonicParsing="false" onAction="#onBack" prefHeight="25.0" prefWidth="54.0" style="-fx-background-color: rgba(101,206,245,0.74); -fx-background-radius: 30;" text="Back" textFill="#fffbfb">
                            <font>
                               <Font name="System Bold Italic" size="13.0" />
                            </font></Button>
+                        <Button fx:id="display" mnemonicParsing="false" onAction="#display" prefHeight="51.0" prefWidth="229.0" style="-fx-background-color: #f5e4ca;" text="Account Details" textFill="#5e5454">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Button>
                      </children>
                   </AnchorPane>
                </children>
             </VBox>
          </left>
          <top>
-            <Pane prefHeight="54.0" prefWidth="898.0" style="-fx-background-color: #DC143C;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="54.0" prefWidth="898.0" style="-fx-background-color: rgba(101,206,245,0.74);" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="exit" cancelButton="true" layoutX="859.0" layoutY="11.0" mnemonicParsing="false" onAction="#exit" prefHeight="18.0" prefWidth="28.0" style="-fx-border-radius: 90; -fx-background-radius: 90; -fx-background-color: #DC143C;" text="X">
+                  <Button fx:id="exit" cancelButton="true" layoutX="859.0" layoutY="11.0" mnemonicParsing="false" onAction="#exit" prefHeight="18.0" prefWidth="28.0" style="-fx-border-radius: 90; -fx-background-radius: 90; -fx-background-color: rgba(101,206,245,0.74);" text="X">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="16.0" />
                      </font>
@@ -60,9 +65,9 @@
          <center>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <children>
-                  <StackPane fx:id="contentArea" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <StackPane fx:id="contentArea" prefHeight="150.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label prefHeight="96.0" prefWidth="378.0" text="Welcome to our Bank!">
+                        <Label prefHeight="96.0" prefWidth="378.0" text="Welcome to FRE Bank!" textFill="#65cef5">
                            <font>
                               <Font name="Berlin Sans FB" size="39.0" />
                            </font>
