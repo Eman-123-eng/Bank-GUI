@@ -245,6 +245,15 @@ public class BankCustomer {
         }
     }
 
+    public static BankCustomer getIDFromAccID(String accID){
+        for(BankCustomer admin :BankCustomer.adminArrayFile ){
+            if(Objects.equals(admin.acctID, accID)){
+                return admin;
+            }
+        }
+        return null;
+    }
+
     public static boolean isValidCust(String id) {
         for (BankCustomer bankcustomer : customerArrayFile) {
             if (Objects.equals(id, bankcustomer.getCustID()))

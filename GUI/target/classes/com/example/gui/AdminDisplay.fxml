@@ -15,16 +15,16 @@
 
 <AnchorPane prefHeight="574.0" prefWidth="868.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.MngController">
    <children>
-      <BorderPane layoutX="-1.0" layoutY="-1.0" prefHeight="574.0" prefWidth="874.0">
+      <BorderPane fx:id="borderP" layoutX="-1.0" layoutY="-1.0" prefHeight="574.0" prefWidth="874.0">
          <top>
-            <Pane opacity="0.84" prefHeight="53.0" prefWidth="600.0" style="-fx-background-color: rgba(101,206,245,0.74);" BorderPane.alignment="CENTER">
+            <Pane fx:id="topPane" opacity="0.84" prefHeight="53.0" prefWidth="600.0" style="-fx-background-color: rgba(101,206,245,0.74);" BorderPane.alignment="CENTER">
                <children>
                   <Label fx:id="exit" layoutX="845.0" layoutY="17.0" onMouseClicked="#exit" prefHeight="19.0" prefWidth="15.0" text="X">
                      <font>
                         <Font name="Berlin Sans FB Demi Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Button fx:id="back" layoutX="23.0" layoutY="12.0" minWidth="46.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="62.0" style="-fx-background-color: rgba(101,206,245,0.74); -fx-background-radius: 30;" text="Back" textFill="#fffafa">
+                  <Button fx:id="back" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="57.0" style="-fx-background-color: rgba(101,206,245,0.74); -fx-background-radius: 30;" text="Back" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -52,10 +52,10 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="323.0" prefWidth="219.0" style="-fx-background-color: #f5e4ca;">
                      <children>
-                        <MenuButton alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" opacity="0.8" prefHeight="49.0" prefWidth="219.0" scaleShape="false" style="-fx-background-color: #f5e4ca;" text="    Add" textAlignment="CENTER">
+                        <MenuButton fx:id="addMenu" alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" mnemonicParsing="false" opacity="0.8" prefHeight="49.0" prefWidth="219.0" scaleShape="false" style="-fx-background-color: #f5e4ca;" text="    Add" textAlignment="CENTER">
                            <items>
                               <MenuItem fx:id="addUser" mnemonicParsing="false" onAction="#addUser" text="               Add User         " />
-                              <MenuItem fx:id="addAdmin" mnemonicParsing="false" onAction="#addAdmin" text="             Add Admin            " visible="false" />
+                              <!--<MenuItem fx:id="addAdmin" mnemonicParsing="false" onAction="#addAdmin" text="             Add Admin            " />-->
                            </items>
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
@@ -64,7 +64,7 @@
                         <MenuButton alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutY="58.0" mnemonicParsing="false" opacity="0.8" prefHeight="49.0" prefWidth="219.0" scaleShape="false" style="-fx-background-color: #f5e4ca;" text="    Delete" textAlignment="CENTER">
                            <items>
                               <MenuItem fx:id="deleteUser" mnemonicParsing="false" onAction="#deleteUser" text="              Delete User     " />
-                              <MenuItem fx:id="deleteAdmin" mnemonicParsing="false" onAction="#deleteAdmin" text="             Delete Admin            " visible="false" />
+                              <MenuItem fx:id="deleteAdmin" mnemonicParsing="false" onAction="#deleteAdmin" text="             Delete Admin            " />
                            </items>
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
@@ -73,7 +73,7 @@
                         <MenuButton alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutY="121.0" mnemonicParsing="false" opacity="0.8" prefHeight="49.0" prefWidth="219.0" scaleShape="false" style="-fx-background-color: #f5e4ca;" text="   Edit" textAlignment="CENTER">
                            <items>
                               <MenuItem fx:id="editUser" mnemonicParsing="false" onAction="#editUser" text="              Edit User         " />
-                              <MenuItem fx:id="editAdmin" mnemonicParsing="false" onAction="#editAdmin" text="             Edit Admin            " visible="false" />
+                              <MenuItem fx:id="editAdmin" mnemonicParsing="false" onAction="#editAdmin" text="             Edit Admin            " />
                               <MenuItem fx:id="editAcc" mnemonicParsing="false" onAction="#editAcc" text="            Edit Account       " />
                            </items>
                            <font>

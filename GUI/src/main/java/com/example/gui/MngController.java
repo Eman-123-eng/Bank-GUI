@@ -1,14 +1,15 @@
 package com.example.gui;
 
+import BankManagement.BankAccount;
+import com.example.gui.adding.addAdminController;
 import com.example.gui.adding.addCustController;
 import customer.BankCustomer;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.*;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -24,8 +25,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -33,6 +32,7 @@ import java.util.Objects;
 public class MngController {
 
     private static String id;
+    public MenuButton addMenu;
 
     @FXML
     private Button Mng;
@@ -90,6 +90,8 @@ public class MngController {
     public Scene scene2;
 
     private addCustController cont;
+    private MngController parentCont;
+
 
     public void initialize() throws IOException {
         System.out.println("initial in mngCont");
@@ -210,8 +212,8 @@ public class MngController {
         stage2.setScene(scene2);
         stage2.show();
 
-       /* cont = fxml.getController();
-        cont.setParent(this);*/
+        cont = fxml.getController();
+        cont.setParent(this);
     }
 
 
@@ -237,12 +239,25 @@ public class MngController {
     @FXML
     void okBtn(ActionEvent event) {
         id = ID.getText();
-        adminDisplay(id);
+        System.out.println("ID is: " + ID.getText());
+        BankCustomer admin = BankCustomer.getAccbyAdminID(ID.getText());
+
+        /*if (admin == null) {
+            System.out.println("Not account");
+            return;
+        }
+        if (Objects.equals(admin.getPost(), "Manager"))
+            System.out.println("This is manager");*/
+        try {
+            adminDisplay(id);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //   adminName.setText("Welcome "+ Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getFirstName());
         //   adminName.setVisible(true);
     }
 
-    public void adminDisplay(String id) {
+    public void adminDisplay(String id) throws IOException {
         BankCustomer admin = BankCustomer.getAccbyAdminID(id);
         if (admin == null) {
             System.out.println("Incorrect id");
@@ -250,13 +265,41 @@ public class MngController {
         }
         FXMLLoader fxml = null;
         if (Objects.equals(admin.getPost(), "Manager")) {
-            try {
-                fxml = new FXMLLoader(getClass().getResource("ManagerDisplay.fxml"));
-                root2 = fxml.load();
+            FXMLLoader loader = new FXMLLoader(MngController.class.getResource("AdminDisplay.fxml"));
+            Parent root = loader.load();
+            parentCont = loader.getController();
 
-            } catch (Exception e) {
-                System.out.println("can't load the page manager");
-            }
+            FXMLLoader loadAcc = new FXMLLoader(MngController.class.getResource("addAcc.fxml"));
+            Parent rootAcc = loadAcc.load();
+
+
+
+            System.out.println("Manager in adminDisplay");
+            System.out.println(parentCont.addMenu.getItems().get(0) + " menu");
+           // System.out.println(parentCont.addMenu.getItems().get(1) + " menu");
+
+            //MenuItem item1 = new MenuItem("addUser");
+
+            MenuItem item2 = new MenuItem("addAdmin");
+            item2.setOnAction(event -> {
+                try {
+                    System.out.println(" adminnnn");
+                    addPane("addCust_Admin.fxml");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            parentCont.addMenu.getItems().add(item2);
+
+            stage2 = new Stage();
+            stage2.hide();
+            scene2 = new Scene(root);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initStyle(StageStyle.UNDECORATED);
+            stage2.setScene(scene2);
+            stage2.show();
+            
         } else {
             try {
                 fxml = new FXMLLoader(getClass().getResource("AdminDisplay.fxml"));

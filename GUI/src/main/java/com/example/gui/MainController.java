@@ -62,13 +62,27 @@ public class MainController {
 
             String checked = checkID_pass(id_field.getText(), pass.getText());
 
+            if(checked == null){
+                System.out.print("The checked is null");
+                Label l = new Label("The id is incorrect");
+                popupWindow(l, signin);
+                return;
+            }
+
 
             if (Objects.equals(checked, "Customer")) {
                 showStage("custAccDisplay.fxml");
                 signin.getScene().getWindow().hide();
 
             } else if (Objects.equals(checked, "Admin")) {
-                showStage("adminCheck.fxml");
+                FXMLLoader fxml2 = new FXMLLoader(getClass().getResource("adminCheck.fxml"));
+                root2 = fxml2.load();
+                stage2 = new Stage();
+                scene2 = new Scene(root2);
+                stage2.initModality(Modality.APPLICATION_MODAL);
+                stage2.initStyle(StageStyle.UNDECORATED);
+                stage2.setScene(scene2);
+                stage2.show();
                 signin.getScene().getWindow().hide();
 
             } else {
@@ -78,7 +92,7 @@ public class MainController {
             }
 
         } catch (Exception e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             System.out.print("this scene can't load with error: " + e);
         }
     }
