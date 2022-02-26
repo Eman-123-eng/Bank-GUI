@@ -69,19 +69,23 @@ public class BankAccount {
                 }
                 accountInfo = row.split(",");
 
+                System.out.println("acc info " + accountInfo.length);
+                if (accountInfo.length == 0) continue;
+
                 for (int i = 0; i < accountInfo.length; i++) {
-                    if (accountInfo[i] == null) {
+                    if (accountInfo[i].length() == 0) {
+                        System.out.println(accountInfo[i] + " Acc");
                         accountInfo[i] = "---";
                     }
                 }
 
                 BankAccount newAccount; // ??????????????????????????? there is a question below
                 if (accountInfo.length == colCount) {
-                    newAccount = new BankAccount(accountInfo[0],accountInfo[1], accountInfo[2], LocalDate.now(), accountInfo[3]); // HOW to enhance this to be generic  col not by specifying the index of the array statically
+                    newAccount = new BankAccount(accountInfo[0], accountInfo[1], accountInfo[2], LocalDate.now(), accountInfo[3]); // HOW to enhance this to be generic  col not by specifying the index of the array statically
                     newAccount.setCustID(accountInfo[4]);
                     newAccount.setBalance(new Double(accountInfo[5]));
                     String[] miniStates = accountInfo[6].split(";");
-                    for (String s : miniStates){
+                    for (String s : miniStates) {
                         if (s.length() <= 5) continue;
                         newAccount.operations.add(s.trim());
                     }
@@ -96,13 +100,13 @@ public class BankAccount {
             accountCSVReader.close();
         } catch (Exception ex) {
             ex.printStackTrace();
-            System.out.println("There is error in reading in the array: " + ex);
+            System.out.println("Error in reading the account array: " + ex);
         }
 
     }
 
     // public BankAccount(int accountId, String accountName, Date dateOpened, String accountDetails, int accountType, int customerId, int accountNumber) {
-    public BankAccount(String accountId,String password, String accountNo, LocalDate dateOpened, String accountType) {
+    public BankAccount(String accountId, String password, String accountNo, LocalDate dateOpened, String accountType) {
         acctID = accountId;
         acctNo = accountNo;
         this.dateOpened = dateOpened;
@@ -184,6 +188,7 @@ public class BankAccount {
         }
         return false;
     }
+
     public static BankAccount getAccount(String ID) {
         if (accountArrayFile == null) {
             System.out.println("array is null, might reasons for the constructor");
@@ -324,6 +329,7 @@ public class BankAccount {
     public String getAcctID() {
         return acctID;
     }
+
     public String getAcctPassword() {
         return acctpassword;
     }
@@ -378,9 +384,11 @@ public class BankAccount {
     public void setAcctID(String accountId) {
         acctID = accountId;
     }
+
     public void setAcctpassword(String password) {
         acctpassword = password;
     }
+
     public void setAcctNo(String accountNo) {
         acctNo = accountNo;
     }

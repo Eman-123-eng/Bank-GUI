@@ -51,7 +51,7 @@ public class BankCustomer {
 
             }
         } catch (Exception ex) {
-            System.out.println("There is error in reading for the array size: " + ex);
+            System.out.println("Error in reading the customer array size: " + ex);
         }
 
         String[] customerInfo;
@@ -65,11 +65,18 @@ public class BankCustomer {
                     continue;
                 }
                 customerInfo = row.split(",");
+
+                System.out.println("cust row " + customerInfo.length);
+                if (customerInfo.length == 0) continue;
+
                 for (int i = 0; i < customerInfo.length; i++) {
-                    if (customerInfo[i] == null) {
+                    if (customerInfo[i].length() == 0) {
+                        System.out.println(customerInfo[i] + " empC");
+
                         customerInfo[i] = "---";
                     }
                 }
+
                 BankCustomer newCustomer;
 
                 newCustomer = new BankCustomer(customerInfo[0], customerInfo[1], customerInfo[2], customerInfo[3], customerInfo[4], customerInfo[5], customerInfo[6]);
@@ -77,7 +84,7 @@ public class BankCustomer {
             }
             customerCSVReader.close();
         } catch (Exception ex) {
-            System.out.println("There is error in reading in the array: " + ex);
+            System.out.println("Error in reading in the customer array: " + ex);
         }
 
 
@@ -97,7 +104,7 @@ public class BankCustomer {
 
             adminArrayFile = new ArrayList<>(numRow);
         } catch (Exception ex) {
-            System.out.println("There is error in reading for the array size: " + ex);
+            System.out.println("Error in reading the admin array size: " + ex);
         }
 
         String[] adminInfo;
@@ -111,6 +118,16 @@ public class BankCustomer {
                 }
                 adminInfo = row.split(",");
 
+                System.out.println("admin row " + adminInfo.length);
+                if (adminInfo.length == 0) continue;
+
+                for (int i = 0; i < adminInfo.length; i++) {
+                    if (adminInfo[i].length() == 0) {
+                        System.out.println(adminInfo[i] + " empA");
+                        adminInfo[i] = "---";
+                    }
+                }
+
                 BankCustomer newCustomer;
                 if (adminInfo.length == colCount) {
                     newCustomer = new BankCustomer(adminInfo[0], adminInfo[1], adminInfo[2], adminInfo[3], adminInfo[4], adminInfo[5]);
@@ -120,7 +137,7 @@ public class BankCustomer {
             }
             adminCSVReader.close();
         } catch (Exception ex) {
-            System.out.println("There is error in reading in the array: " + ex);
+            System.out.println("Error in reading in the admin array: " + ex);
         }
     }
 
@@ -300,6 +317,7 @@ public class BankCustomer {
         }
         return null;
     }
+
     public static BankCustomer getAccbyAdminID(String ID) {
         for (BankCustomer account : BankCustomer.adminArrayFile) {
             if (Objects.equals(account.getCustID(), ID)) {
@@ -308,6 +326,7 @@ public class BankCustomer {
         }
         return null;
     }
+
     public static BankCustomer getCustAccount(String id) {
         for (BankCustomer bankcustomer : customerArrayFile) {
             if (Objects.equals(id, bankcustomer.getAcctID()))
@@ -319,6 +338,7 @@ public class BankCustomer {
         }
         return null;
     }
+
     public static BankCustomer getAccbyCustID(String id) {
         for (BankCustomer bankcustomer : customerArrayFile) {
             if (Objects.equals(id, bankcustomer.getCustID()))

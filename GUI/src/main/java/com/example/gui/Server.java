@@ -176,14 +176,19 @@ public class Server extends Thread {
             }
         }
 
-        private String checkID(String id) {
+        private String checkID_pass(String id, String pass) {
+            BankAccount acc = BankAccount.getAccount(id);
+            if(acc == null)
+                return null;
             if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
-                if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer
-                    System.out.println("You are a customer");
-                    return "Customer";
-                } else {
-                    System.out.println("You are an admin");
-                    return "Admin";
+                if (BankAccount.isValidPass(pass)) {
+                    if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(BankAccount.getAccount(id).getCustID())) { //thus, you are a customer
+                        System.out.println("You are a customer");
+                        return "Customer";
+                    } else {
+                        System.out.println("You are an admin");
+                        return "Admin";
+                    }
                 }
             }
             return null;
@@ -231,15 +236,16 @@ public class Server extends Thread {
                 switch (clientReq) {
                     case "signIn": {
                         System.out.println("Server: go to sign in controller");
-                        if (clientData == null)
+                        if (clientData == null) //update it to handle auth[1] if fields does not sent
                             outStream.writeObject("Enter");
-                        String checked = checkID(clientData);
+                        String[] auth = clientData.split("--");
+                        String checked = checkID_pass(auth[0], auth[1]);
                         if (checked == null)
                             outStream.writeObject("Incorrect");
                         else if (checked.equals("Customer")) {
                             outStream.writeObject("customer");
                             //out.println("customer");
-                            myAcc = BankAccount.getAccount(clientData);
+                            myAcc = BankAccount.getAccount(auth[0]);
                             //out.println("Server: you are a customer");
                         } else
                             outStream.writeObject("Incorrectttt");
@@ -274,6 +280,7 @@ public class Server extends Thread {
                     }
 
                     case "balance": {
+                        System.out.println(myAcc.getBalance()); //to be handled if myAcc is null
                         outStream.writeObject("Server: Balance," + myAcc.getBalance());
                         outStream.flush();
                         break;
