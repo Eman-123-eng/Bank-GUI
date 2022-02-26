@@ -14,7 +14,12 @@
             </font>
         </Label>
         <TextField fx:id="ID" layoutX="53.0" layoutY="64.0" prefHeight="29.0" prefWidth="183.0" style="-fx-border-color: rgba(101,206,245,0.74);" />
-        <Button fx:id="okBtn" layoutX="109.0" layoutY="114.0" mnemonicParsing="false" onAction="#okBtn" prefHeight="35.0" prefWidth="61.0" style="-fx-background-color: #e3d0a7; -fx-background-radius: 30;" text="OK">
+        <Button fx:id="backReq" layoutX="158.0" layoutY="115.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="61.0" style="-fx-background-color: #e3d0a7; -fx-background-radius: 30;" text="Back">
+            <font>
+                <Font name="System Bold Italic" size="16.0" />
+            </font>
+        </Button>
+        <Button fx:id="okBtn" layoutX="66.0" layoutY="115.0" mnemonicParsing="false" onAction="#okBtn" prefHeight="35.0" prefWidth="61.0" style="-fx-background-color: #e3d0a7; -fx-background-radius: 30;" text="OK">
             <font>
                 <Font name="System Bold Italic" size="16.0" />
             </font>

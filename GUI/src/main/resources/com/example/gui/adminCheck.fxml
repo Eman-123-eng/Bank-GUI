@@ -12,7 +12,7 @@
                 <Font name="System Bold Italic" size="18.0" />
             </font>
         </Label>
-        <Button fx:id="Mng" layoutX="42.0" layoutY="67.0" mnemonicParsing="false" onAction="#Mng" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: rgba(101,206,245,0.74); -fx-background-radius: 30;" text="Manage">
+        <Button fx:id="Mng" layoutX="42.0" layoutY="67.0" mnemonicParsing="false" onAction="#Mng" prefHeight="35.0" prefWidth="257.0" style="-fx-background-color: rgba(101,206,245,0.74); -fx-background-radius: 30;" text="Management">
             <font>
                 <Font name="System Bold Italic" size="16.0" />
             </font>

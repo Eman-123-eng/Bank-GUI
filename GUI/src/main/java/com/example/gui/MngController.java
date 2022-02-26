@@ -33,7 +33,7 @@ public class MngController {
 
     private static String id;
     public MenuButton addMenu,deleteMenu,editMenu;
-
+    public Button backReq;
     @FXML
     private Button Mng;
 
@@ -244,21 +244,34 @@ public class MngController {
     void okBtn(ActionEvent event) {
         id = ID.getText();
         System.out.println("ID is: " + ID.getText());
-        BankCustomer admin = BankCustomer.getAccbyAdminID(ID.getText());
 
-        /*if (admin == null) {
-            System.out.println("Not account");
-            return;
-        }
-        if (Objects.equals(admin.getPost(), "Manager"))
-            System.out.println("This is manager");*/
-        try {
+           try {
             adminDisplay(id);
         } catch (IOException e) {
             e.printStackTrace();
         }
         //   adminName.setText("Welcome "+ Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getFirstName());
         //   adminName.setVisible(true);
+    }
+
+    @FXML
+    void onBack(ActionEvent event) {
+        try {
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("adminCheck.fxml"));
+            root2 = fxml.load();
+            stage2 = new Stage();
+            stage2.hide();
+            scene2 = new Scene(root2);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initStyle(StageStyle.UNDECORATED);
+            stage2.setScene(scene2);
+            stage2.show();
+            backReq.getScene().getWindow().hide();
+        } catch (Exception e) {
+            System.out.println("can't load the page for back");
+        }
+
+
     }
 
     public void adminDisplay(String id) throws IOException {

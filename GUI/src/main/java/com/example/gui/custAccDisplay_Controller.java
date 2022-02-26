@@ -87,7 +87,7 @@ public class custAccDisplay_Controller {
 
     @FXML
     void withdraw(ActionEvent event) throws IOException {
-        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("withdraw.fxml"));
+        FXMLLoader fxml1 = new FXMLLoader(getClass().getResource("withdraw2.fxml"));
         Parent root1 = fxml1.load();
 
         contentArea.getChildren().removeAll();

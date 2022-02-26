@@ -2,70 +2,58 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.layout.AnchorPane?>
 
-
-<Pane prefHeight="504.0" prefWidth="560.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/17"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.withdrawCont2">
+<Pane prefHeight="504.0" prefWidth="560.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.withdrawCont2">
     <children>
         <AnchorPane prefHeight="504.0" prefWidth="560.0">
             <children>
-                <Label layoutX="173.0" layoutY="30.0" prefHeight="34.0" prefWidth="213.0"
-                       text="Please enter your amount !">
+                <Label layoutX="173.0" layoutY="30.0" prefHeight="34.0" prefWidth="213.0" text="Please choose the amount !">
                     <font>
-                        <Font name="System Bold Italic" size="15.0"/>
+                        <Font name="System Bold Italic" size="15.0" />
                     </font>
                 </Label>
-                <Button fx:id="M50" layoutX="82.0" layoutY="142.0" mnemonicParsing="false" onAction="#onDraw"
-                        prefHeight="34.0" prefWidth="156.0" text="50">
+                <Button fx:id="M50" layoutX="82.0" layoutY="142.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" text="50">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="M100" layoutX="319.0" layoutY="142.0" mnemonicParsing="false" onAction="#onDraw"
-                        prefHeight="34.0" prefWidth="156.0" text="100">
+                <Button fx:id="M100" layoutX="319.0" layoutY="142.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" text="100">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="M200" layoutX="82.0" layoutY="217.0" mnemonicParsing="false" prefHeight="34.0"
-                        prefWidth="156.0" text="200">
+                <Button fx:id="M200" layoutX="82.0" layoutY="217.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" text="200">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="M500" layoutX="319.0" layoutY="217.0" mnemonicParsing="false" prefHeight="34.0"
-                        prefWidth="156.0" text="500">
+                <Button fx:id="M500" layoutX="319.0" layoutY="217.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" text="500">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="M1000" layoutX="82.0" layoutY="289.0" mnemonicParsing="false" prefHeight="34.0"
-                        prefWidth="156.0" text="1000">
+                <Button fx:id="M1000" layoutX="82.0" layoutY="289.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" text="1000">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="M2000" layoutX="319.0" layoutY="289.0" mnemonicParsing="false" prefHeight="34.0"
-                        prefWidth="156.0" text="2000">
+                <Button fx:id="M2000" layoutX="319.0" layoutY="289.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" text="2000">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
-                <Button fx:id="M3000" layoutX="82.0" layoutY="357.0" mnemonicParsing="false" prefHeight="34.0"
-                        prefWidth="156.0" text="3000">
+                <Button fx:id="M3000" layoutX="82.0" layoutY="357.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" text="3000">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
 
-                <Button fx:id="anotherAmt" layoutX="319.0" layoutY="357.0" mnemonicParsing="false" prefHeight="34.0"
-                        prefWidth="156.0" text="Another Money">
+                <Button fx:id="anotherAmt" layoutX="319.0" layoutY="357.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" text="Another Money">
                     <font>
-                        <Font name="System Bold" size="14.0"/>
+                        <Font name="System Bold" size="14.0" />
                     </font>
                 </Button>
 
