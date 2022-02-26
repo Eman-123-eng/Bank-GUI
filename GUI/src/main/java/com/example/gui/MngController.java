@@ -55,9 +55,11 @@ public class MngController {
     public Button back;
 
     @FXML
-    private Button Manage, accStat, addBtn, deleteBtn, deposit, editBtn, transfer, transaction_Button, withdraw;
+    private Button Manage, accStat, addBtn, deleteBtn, deposit, transfer, transaction_Button, withdraw;
     @FXML
-    private MenuItem item2,item3,item4;
+    public Button  editBtn;
+    @FXML
+    public MenuItem item2,item3,item4;
 
     @FXML
     private MenuItem addUser;
@@ -87,10 +89,12 @@ public class MngController {
     public Stage stage2, stage;
     public Parent root2, root;
 
-    public Scene scene2;
+    public Scene scene2,scene;
 
     private addCustController cont;
     private MngController parentCont;
+    public static int isManager=0;
+
 
 
     public void initialize() throws IOException {
@@ -270,8 +274,7 @@ public class MngController {
         FXMLLoader fxml = null;
         parentCont.adminName.setText("  Welcome "+ admin.getFirstName());
         if (Objects.equals(admin.getPost(), "Manager")) {
-
-
+            isManager=1;
             FXMLLoader loadAcc = new FXMLLoader(MngController.class.getResource("addAcc.fxml"));
             Parent rootAcc = loadAcc.load();
 
@@ -287,7 +290,7 @@ public class MngController {
             item2.setOnAction(event -> {
                 try {
                     System.out.println(" adminnnn");
-                    addPane("addCust_Admin.fxml");
+                    parentCont.addPane("addCust_Admin.fxml");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -296,7 +299,8 @@ public class MngController {
             item3.setOnAction(event ->{
                 try {
                     System.out.println(" deleteeeee");
-                    addPane("adminDELETE.fxml");
+
+                    parentCont.addPane("adminDELETE.fxml");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -404,6 +408,19 @@ public class MngController {
         System.out.println(root1.getChildrenUnmodifiable().size());
         contentArea.getChildren().removeAll();
         contentArea.getChildren().setAll(root1);
+
+    }
+    public MenuItem addMenuItems(String name,String path){
+        MenuItem item = new MenuItem(name);
+        item.setOnAction(event ->{
+            try {
+                System.out.println(" adminnnn");
+                parentCont.addPane(path);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        return item;
 
     }
 
