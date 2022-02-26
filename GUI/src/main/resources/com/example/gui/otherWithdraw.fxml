@@ -10,7 +10,7 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.gui.OtherDrawController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="186.0" prefWidth="288.0">
     <children>
         <Label layoutX="33.0" layoutY="24.0" prefHeight="29.0" prefWidth="212.0" text="Enter the amount: ">
             <font>

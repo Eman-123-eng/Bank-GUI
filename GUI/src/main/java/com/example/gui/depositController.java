@@ -56,6 +56,7 @@ public class depositController {
         if (Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
         myAcc.getOperations().add(myAcc.getOperations().size(), "Deposition:" + amt + "-- at:" + dtf.format(now));
 
+        BankAccount.writeToFile();
         newBal_Label.setText("New Balance: " + myAcc.getBalance());
         depAmt_field.setText("");
 

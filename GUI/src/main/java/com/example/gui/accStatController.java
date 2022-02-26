@@ -49,14 +49,20 @@ public class accStatController implements Initializable {
         for (String s : myAcc.getOperations()) {
             //System.out.println("op: " + s);
             if (Objects.equals(s, " ")) continue;
-            String first = s.split("--")[0];
-            String sec = s.split("--")[1];
+            String[] list = s.split("--");
+            String op_amt = list[0];
 
-            //System.out.println("first: " + first + "  "+sec.split("at:")[1]);
-            String[] ft = first.split(":");
+            if (list.length > 1) {
+                String[] tmp = list[1].split("at:");
+                //System.out.println(tmp.length + " len");
+                //System.out.println(tmp[0] + " len2");
+                System.out.println(tmp[1] + " len2");
+                String d = tmp[1].trim();
+                String[] first = op_amt.split(":");
 
-            statesModel.add(new MiniStatement(ft[0].trim(), ft[1].trim(), sec.split("at:")[1]));
 
+                statesModel.add(new MiniStatement(first[0].trim(), first[1].trim(), d));
+            }
         }
 
         return statesModel;

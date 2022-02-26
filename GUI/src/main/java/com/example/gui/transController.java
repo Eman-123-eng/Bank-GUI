@@ -77,6 +77,7 @@ public class transController {
         if (Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
         myAcc.getOperations().add(myAcc.getOperations().size(), "Transfer:" + amt + "-- to " + toAcc.getAcctNo() + "-- at:" + dtf.format(now));
 
+        BankAccount.writeToFile();
         transLabel.setText("New Balance: " + myAcc.getBalance());
         transAmt_field.setText("");
         transTo_field.setText("");

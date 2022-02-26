@@ -52,7 +52,7 @@ public class withdrawCont2 {
         }
         else{
             try {
-                FXMLLoader fxml = new FXMLLoader(getClass().getResource("adminIDRequest.fxml"));
+                FXMLLoader fxml = new FXMLLoader(getClass().getResource("otherWithdraw.fxml"));
                 root = fxml.load();
                 stage = new Stage();
                 stage.hide();
@@ -61,11 +61,16 @@ public class withdrawCont2 {
                 stage.initStyle(StageStyle.UNDECORATED);
                 stage.setScene(scene);
                 stage.show();
-               // Mng.getScene().getWindow().hide();
+                source.getScene().getWindow().hide();
             } catch (Exception e) {
                 System.out.println("can't load the page");
             }
+
         }
+        MainController m = new MainController();
+        Label l = new Label("");
+        l.setText("Successful operation");
+        m.popupWindow(l, source);
     }
     public void checkBal(double amt, Button btn){
         MainController m = new MainController();
@@ -93,9 +98,7 @@ public class withdrawCont2 {
 
         if (Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
         myAcc.getOperations().add(myAcc.getOperations().size(), "Withdrawal:" + amt + "-- at:" + dtf.format(now));
-
-        l.setText("Successful operation");
-        m.popupWindow(l, btn);
+        BankAccount.writeToFile();
     }
 
 }

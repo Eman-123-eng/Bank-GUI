@@ -8,7 +8,7 @@
 
 <Pane prefHeight="504.0" prefWidth="648.0" style="-fx-background-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.accStatController">
     <children>
-        <Label layoutX="275.0" layoutY="24.0" prefHeight="30.0" prefWidth="129.0" text="mini-Statement">
+        <Label layoutX="275.0" layoutY="24.0" prefHeight="30.0" prefWidth="129.0" text="Mini-Statement">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
