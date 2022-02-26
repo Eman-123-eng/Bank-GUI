@@ -132,7 +132,6 @@ public class BankCustomer {
         this.post = post;
         System.out.println("The post is: " + this.post);
         acctID = accountID;
-        this.city = city;
         this.mobile = mobile;
     }
 
@@ -313,6 +312,10 @@ public class BankCustomer {
         for (BankCustomer bankcustomer : customerArrayFile) {
             if (Objects.equals(id, bankcustomer.getAcctID()))
                 return bankcustomer;
+        }
+        for (BankCustomer bankAdmin : adminArrayFile) {
+            if (Objects.equals(id, bankAdmin.getAcctID()))
+                return bankAdmin;
         }
         return null;
     }

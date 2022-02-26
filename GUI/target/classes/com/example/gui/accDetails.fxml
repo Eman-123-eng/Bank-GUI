@@ -6,96 +6,92 @@
 
 <AnchorPane prefHeight="519.0" prefWidth="578.0" style="-fx-background-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.DisplayingAcc">
     <children>
-        <Label layoutX="134.0" layoutY="51.0" prefHeight="28.0" prefWidth="93.0" text="First name :">
+        <Label layoutX="122.0" layoutY="41.0" prefHeight="28.0" prefWidth="93.0" text="First name :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="134.0" layoutY="99.0" prefHeight="28.0" prefWidth="93.0" text="Last name :">
+        <Label layoutX="122.0" layoutY="89.0" prefHeight="28.0" prefWidth="93.0" text="Last name :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="153.0" layoutY="288.0" prefHeight="28.0" prefWidth="55.0" text="City :">
+        <Label layoutX="141.0" layoutY="278.0" prefHeight="28.0" prefWidth="55.0" text="City :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="144.0" layoutY="337.0" prefHeight="28.0" prefWidth="75.0" text="Street :">
+        <Label layoutX="132.0" layoutY="327.0" prefHeight="28.0" prefWidth="75.0" text="Street :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="144.0" layoutY="387.0" prefHeight="28.0" prefWidth="75.0" text="Mobile :">
+        <Label layoutX="132.0" layoutY="377.0" prefHeight="28.0" prefWidth="75.0" text="Mobile :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label layoutX="127.0" layoutY="246.0" prefHeight="28.0" prefWidth="108.0" text="Customer ID :">
+        <Label layoutX="115.0" layoutY="236.0" prefHeight="28.0" prefWidth="108.0" text="Customer ID :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-        <Label fx:id="usr_lbl" layoutX="62.0" layoutY="435.0" prefHeight="42.0" prefWidth="262.0">
-            <font>
-                <Font name="System Bold Italic" size="14.0" />
-            </font></Label>
-        <Label layoutX="127.0" layoutY="148.0" prefHeight="28.0" prefWidth="108.0" text="Account ID :">
+        <Label layoutX="115.0" layoutY="138.0" prefHeight="28.0" prefWidth="108.0" text="Account ID :">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-      <Label layoutX="127.0" layoutY="196.0" prefHeight="28.0" prefWidth="108.0" text="Account NO. :">
+      <Label layoutX="115.0" layoutY="186.0" prefHeight="28.0" prefWidth="108.0" text="Account NO. :">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="firstN" layoutX="290.0" layoutY="51.0" prefHeight="28.0" prefWidth="224.0">
+      <Label layoutX="131.0" layoutY="425.0" prefHeight="28.0" prefWidth="75.0" text="Balance :">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="lastN" layoutX="290.0" layoutY="99.0" prefHeight="28.0" prefWidth="224.0">
+      <Label fx:id="firstN" layoutX="278.0" layoutY="41.0" prefHeight="28.0" prefWidth="224.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="accID" layoutX="290.0" layoutY="148.0" prefHeight="28.0" prefWidth="224.0">
+      <Label fx:id="lastN" layoutX="278.0" layoutY="89.0" prefHeight="28.0" prefWidth="224.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="accNo" layoutX="290.0" layoutY="196.0" prefHeight="28.0" prefWidth="224.0">
+      <Label fx:id="accID" layoutX="278.0" layoutY="138.0" prefHeight="28.0" prefWidth="224.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="custID" layoutX="290.0" layoutY="246.0" prefHeight="28.0" prefWidth="224.0">
+      <Label fx:id="accNo" layoutX="278.0" layoutY="186.0" prefHeight="28.0" prefWidth="224.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="city" layoutX="290.0" layoutY="288.0" prefHeight="28.0" prefWidth="224.0">
+      <Label fx:id="custID" layoutX="278.0" layoutY="236.0" prefHeight="28.0" prefWidth="224.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="street" layoutX="290.0" layoutY="337.0" prefHeight="28.0" prefWidth="224.0">
+      <Label fx:id="city" layoutX="278.0" layoutY="278.0" prefHeight="28.0" prefWidth="224.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="mobile" layoutX="290.0" layoutY="387.0" prefHeight="28.0" prefWidth="224.0">
+      <Label fx:id="street" layoutX="278.0" layoutY="327.0" prefHeight="28.0" prefWidth="224.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="balance" layoutX="290.0" layoutY="435.0" prefHeight="28.0" prefWidth="224.0">
+      <Label fx:id="mobile" layoutX="278.0" layoutY="377.0" prefHeight="28.0" prefWidth="224.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="143.0" layoutY="435.0" prefHeight="28.0" prefWidth="75.0" text="Balance :">
+      <Label fx:id="balance" layoutX="278.0" layoutY="425.0" prefHeight="28.0" prefWidth="224.0">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>

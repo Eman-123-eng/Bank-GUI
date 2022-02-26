@@ -37,8 +37,8 @@ public class MainController {
     private Parent root, root2;
 
     @FXML
-    private TextField id_field, StreetField, cityField, fn_field, id_register, mobileField, ln_field,psswrd_field;
-    public static String ID ;
+    private TextField id_field, StreetField, cityField, fn_field, id_register, mobileField, ln_field, pass;
+    public static String ID;
 
     @FXML
     private Label exit;
@@ -56,12 +56,11 @@ public class MainController {
     }
 
 
-
     @FXML
     void buttonPressed(ActionEvent event) throws IOException {
         try {// this code to switch to another frame.
 
-            String checked = checkID(id_field.getText());
+            String checked = checkID_pass(id_field.getText(), pass.getText());
 
 
             if (Objects.equals(checked, "Customer")) {
@@ -120,7 +119,7 @@ public class MainController {
         stage2.show();
     }
 
-    public static String checkID(String id) {
+    public static String checkID_pass(String id, String pass) {
         BankAccount acc = BankAccount.getAccount(id);
         if (acc == null) {
             System.out.println("Invalid acc ID");
@@ -128,22 +127,26 @@ public class MainController {
         }
         System.out.println(acc.getCustID());
         if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
-           // MainController.ID = m.id_field.getText();
+
             ID = id;
-            if (BankCustomer.isValidCust(acc.getCustID())) { //thus, you are a customer
-                //if (BankCustomer.isValidPass(String.valueOf(pass))) {
-                //m.id_field.setText("");
-                System.out.println("You are a customer");
-                return "Customer";
+            if (BankAccount.isValidPass(pass)) {
+                if (BankCustomer.isValidCust(acc.getCustID())) { //thus, you are a customer
+
+                    //m.id_field.setText("");
+                    System.out.println("You are a customer");
+                    return "Customer";
                 /*} else {
                     System.out.println("Wrong password");
                     JOptionPane.showMessageDialog(null, "This is an invalid account");
                 }*/
-            } else {
-                //m.id_field.setText("");
-                //psw.setText("");
-                System.out.println("You are an admin");
-                return "Admin";
+                } else {
+                    //m.id_field.setText("");
+                    //psw.setText("");
+                    System.out.println("You are an admin");
+                    return "Admin";
+                }
+            } else{
+                System.out.println("Wrong password");
             }
         }
         return null;

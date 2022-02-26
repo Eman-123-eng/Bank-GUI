@@ -124,18 +124,44 @@ public class MngController {
 
     @FXML
     void editAdmin(ActionEvent event) throws IOException {
-        show("editRequestAdmin.fxml");
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("editRequestAdmin.fxml"));
+        root2 = fxml.load();
+        stage2 = new Stage();
+        stage2.hide();
+        scene2 = new Scene(root2);
+        stage2.initModality(Modality.APPLICATION_MODAL);
+        stage2.initStyle(StageStyle.UNDECORATED);
+        stage2.setScene(scene2);
+        stage2.show();
+        editBtn.getScene().getWindow().hide();
     }
 
     @FXML
     void editUser(ActionEvent event) throws IOException {
-        show("editRequestUSER.fxml");
-
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("editRequestUSER.fxml"));
+        root2 = fxml.load();
+        stage2 = new Stage();
+        stage2.hide();
+        scene2 = new Scene(root2);
+        stage2.initModality(Modality.APPLICATION_MODAL);
+        stage2.initStyle(StageStyle.UNDECORATED);
+        stage2.setScene(scene2);
+        stage2.show();
+        editBtn.getScene().getWindow().hide();
     }
 
     @FXML
     void editAcc(ActionEvent event) throws IOException {
-        show("editRequest.fxml");
+        FXMLLoader fxml = new FXMLLoader(getClass().getResource("editRequest.fxml"));
+        root2 = fxml.load();
+        stage2 = new Stage();
+        stage2.hide();
+        scene2 = new Scene(root2);
+        stage2.initModality(Modality.APPLICATION_MODAL);
+        stage2.initStyle(StageStyle.UNDECORATED);
+        stage2.setScene(scene2);
+        stage2.show();
+        editBtn.getScene().getWindow().hide();
     }
 
     @FXML
