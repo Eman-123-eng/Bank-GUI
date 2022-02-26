@@ -57,46 +57,44 @@ public class addAccController {
         return this;
     }
 
-    public void initialize() throws IOException {
-        System.out.println("child ");
-        FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
-        Parent root = loader.load();
-        parentCont = loader.getController();
-        System.out.print(MngController.isManager);
-        if(MngController.isManager==1){
-
-
-            parentCont.item4 = new MenuItem("             Edit Admin            ");
-            parentCont.item4.setOnAction(event ->{
-                try {
-                    System.out.println(" ediiiiit");
-                    FXMLLoader fxml4 = new FXMLLoader(getClass().getResource("editRequestAdmin.fxml"));
-                    parentCont.root2 = fxml4.load();
-                    parentCont.stage2 = new Stage();
-                    parentCont.stage2.hide();
-                    parentCont.scene2 = new Scene(parentCont.root2);
-                    parentCont.stage2.initModality(Modality.APPLICATION_MODAL);
-                    parentCont.stage2.initStyle(StageStyle.UNDECORATED);
-                    parentCont.stage2.setScene(parentCont.scene2);
-                    parentCont.stage2.show();
-                    parentCont.editBtn.getScene().getWindow().hide();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-            parentCont.addMenu.getItems().add( parentCont.addMenuItems("             Delete Admin            ","adminDELETE.fxml"));
-            parentCont.deleteMenu.getItems().add( parentCont.addMenuItems("             Add Admin            ","addCust_Admin.fxml"));
-            parentCont.editMenu.getItems().add(parentCont.item4);
-            System.out.print("not loading");
-            System.out.println(parentCont.addMenu.getItems().size());
-            System.out.println(parentCont.addMenu.getScene());
-            stage = (Stage)  parentCont.addMenu.getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-
-        }
-    }
+//    public void initialize() throws IOException {
+//        System.out.println("child ");
+//        FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
+//        Parent root = loader.load();
+//        parentCont = loader.getController();
+//        System.out.print(MngController.isManager);
+//        if(MngController.isManager==1){
+//            parentCont.item4 = new MenuItem("             Edit Admin            ");
+//            parentCont.item4.setOnAction(event ->{
+//                try {
+//                    System.out.println(" ediiiiit");
+//                    FXMLLoader fxml4 = new FXMLLoader(getClass().getResource("editRequestAdmin.fxml"));
+//                    parentCont.root2 = fxml4.load();
+//                    parentCont.stage2 = new Stage();
+//                    parentCont.stage2.hide();
+//                    parentCont.scene2 = new Scene(parentCont.root2);
+//                    parentCont.stage2.initModality(Modality.APPLICATION_MODAL);
+//                    parentCont.stage2.initStyle(StageStyle.UNDECORATED);
+//                    parentCont.stage2.setScene(parentCont.scene2);
+//                    parentCont.stage2.show();
+//                    parentCont.editBtn.getScene().getWindow().hide();
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//            });
+//            parentCont.addMenu.getItems().add( parentCont.addMenuItems("             Delete Admin            ","adminDELETE.fxml"));
+//            parentCont.deleteMenu.getItems().add( parentCont.addMenuItems("             Add Admin            ","addCust_Admin.fxml"));
+//            parentCont.editMenu.getItems().add(parentCont.item4);
+//            System.out.print("not loading");
+//            System.out.println(parentCont.addMenu.getItems().size());
+//            System.out.println(parentCont.back.getScene().getWindow());
+//            stage =  (Stage)  parentCont.root.getScene().getWindow();
+//            scene = new Scene(root);
+//            stage.setScene(scene);
+//            stage.show();
+//
+//        }
+//    }
 
 
     @FXML

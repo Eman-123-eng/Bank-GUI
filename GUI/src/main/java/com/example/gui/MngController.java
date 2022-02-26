@@ -62,7 +62,7 @@ public class MngController {
     public MenuItem item2,item3,item4;
 
     @FXML
-    private MenuItem addUser;
+    public MenuItem addUser;
 
     @FXML
     private Label adminName;
