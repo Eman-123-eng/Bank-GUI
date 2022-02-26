@@ -32,7 +32,7 @@ import java.util.Objects;
 public class MngController {
 
     private static String id;
-    public MenuButton addMenu;
+    public MenuButton addMenu,deleteMenu,editMenu;
 
     @FXML
     private Button Mng;
@@ -57,7 +57,7 @@ public class MngController {
     @FXML
     private Button Manage, accStat, addBtn, deleteBtn, deposit, editBtn, transfer, transaction_Button, withdraw;
     @FXML
-    private MenuItem addAdmin;
+    private MenuItem item2,item3,item4;
 
     @FXML
     private MenuItem addUser;
@@ -98,10 +98,10 @@ public class MngController {
 
     }
 
-    @FXML
-    void addAdmin(ActionEvent event) throws IOException {
-        addPane("addCust_Admin.fxml");
-    }
+//    @FXML
+//    void addAdmin(ActionEvent event) throws IOException {
+//        addPane("addCust_Admin.fxml");
+//    }
 
     @FXML
     void addUser(ActionEvent event) throws IOException {
@@ -114,29 +114,29 @@ public class MngController {
             setStackPane("addAcc.fxml");
         }*/
 
-    @FXML
-    void deleteAdmin(ActionEvent event) throws IOException {
-        addPane("adminDELETE.fxml");
-    }
+//    @FXML
+//    void deleteAdmin(ActionEvent event) throws IOException {
+//        addPane("adminDELETE.fxml");
+//    }
 
     @FXML
     void deleteUser(ActionEvent event) throws IOException {
         addPane("userDELETE.fxml");
     }
 
-    @FXML
-    void editAdmin(ActionEvent event) throws IOException {
-        FXMLLoader fxml = new FXMLLoader(getClass().getResource("editRequestAdmin.fxml"));
-        root2 = fxml.load();
-        stage2 = new Stage();
-        stage2.hide();
-        scene2 = new Scene(root2);
-        stage2.initModality(Modality.APPLICATION_MODAL);
-        stage2.initStyle(StageStyle.UNDECORATED);
-        stage2.setScene(scene2);
-        stage2.show();
-        editBtn.getScene().getWindow().hide();
-    }
+//    @FXML
+//    void editAdmin(ActionEvent event) throws IOException {
+//        FXMLLoader fxml = new FXMLLoader(getClass().getResource("editRequestAdmin.fxml"));
+//        root2 = fxml.load();
+//        stage2 = new Stage();
+//        stage2.hide();
+//        scene2 = new Scene(root2);
+//        stage2.initModality(Modality.APPLICATION_MODAL);
+//        stage2.initStyle(StageStyle.UNDECORATED);
+//        stage2.setScene(scene2);
+//        stage2.show();
+//        editBtn.getScene().getWindow().hide();
+//    }
 
     @FXML
     void editUser(ActionEvent event) throws IOException {
@@ -263,11 +263,14 @@ public class MngController {
             System.out.println("Incorrect id");
             return;
         }
+
+        FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
+        Parent root = loader.load();
+        parentCont = loader.getController();
         FXMLLoader fxml = null;
+        parentCont.adminName.setText("  Welcome "+ admin.getFirstName());
         if (Objects.equals(admin.getPost(), "Manager")) {
-            FXMLLoader loader = new FXMLLoader(MngController.class.getResource("AdminDisplay.fxml"));
-            Parent root = loader.load();
-            parentCont = loader.getController();
+
 
             FXMLLoader loadAcc = new FXMLLoader(MngController.class.getResource("addAcc.fxml"));
             Parent rootAcc = loadAcc.load();
@@ -280,7 +283,7 @@ public class MngController {
 
             //MenuItem item1 = new MenuItem("addUser");
 
-            MenuItem item2 = new MenuItem("addAdmin");
+            item2 = new MenuItem("             Add Admin            ");
             item2.setOnAction(event -> {
                 try {
                     System.out.println(" adminnnn");
@@ -289,8 +292,38 @@ public class MngController {
                     e.printStackTrace();
                 }
             });
+            item3 = new MenuItem("             Delete Admin            ");
+            item3.setOnAction(event ->{
+                try {
+                    System.out.println(" deleteeeee");
+                    addPane("adminDELETE.fxml");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+            item4 = new MenuItem("             Edit Admin            ");
+            item4.setOnAction(event ->{
+                try {
+                    System.out.println(" ediiiiit");
+                    FXMLLoader fxml4 = new FXMLLoader(getClass().getResource("editRequestAdmin.fxml"));
+                    root2 = fxml4.load();
+                    stage2 = new Stage();
+                    stage2.hide();
+                    scene2 = new Scene(root2);
+                    stage2.initModality(Modality.APPLICATION_MODAL);
+                    stage2.initStyle(StageStyle.UNDECORATED);
+                    stage2.setScene(scene2);
+                    stage2.show();
+                    editBtn.getScene().getWindow().hide();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
 
             parentCont.addMenu.getItems().add(item2);
+            parentCont.deleteMenu.getItems().add(item3);
+            parentCont.editMenu.getItems().add(item4);
 
             stage2 = new Stage();
             stage2.hide();
@@ -302,7 +335,7 @@ public class MngController {
             
         } else {
             try {
-                fxml = new FXMLLoader(getClass().getResource("AdminDisplay.fxml"));
+                fxml = new FXMLLoader(getClass().getResource("ManagerDisplay.fxml"));
                 root2 = fxml.load();
                 //adminName.setText("Welcome "+ Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getFirstName());
 
