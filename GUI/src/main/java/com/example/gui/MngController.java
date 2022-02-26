@@ -288,10 +288,6 @@ public class MngController {
         parentCont.adminName.setText("  Welcome "+ admin.getFirstName());
         if (Objects.equals(admin.getPost(), "Manager")) {
             isManager=1;
-            FXMLLoader loadAcc = new FXMLLoader(MngController.class.getResource("addAcc.fxml"));
-            Parent rootAcc = loadAcc.load();
-
-
 
             System.out.println("Manager in adminDisplay");
             System.out.println(parentCont.addMenu.getItems().get(0) + " menu");

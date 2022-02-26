@@ -48,14 +48,14 @@ public class addAdminController {
     @FXML
     private TextField post_field;
 
-    private MngController parentCont;
+    private MngController pCont;
     Stage stage;
     Scene scene;
     Parent root;
 
 
     public void setParent(MngController controller) {
-        parentCont = controller;
+        pCont = controller;
     }
 
     public addAdminController getThis() {
@@ -73,7 +73,7 @@ public class addAdminController {
         BankCustomer.writeToAdminFile();
         FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
         Parent root = loader.load();
-        parentCont = loader.getController();
+        pCont = loader.getController();
 
         FXMLLoader loadAcc = new FXMLLoader(MngController.class.getResource("addAcc.fxml"));
         Parent rootAcc = loadAcc.load();
@@ -84,9 +84,9 @@ public class addAdminController {
 
         sp.setId("stack");
 
-        parentCont.back.setText("go  "); //to be removed
+        pCont.back.setText("go  "); //to be removed
 
-        parentCont.borderP.setCenter(sp);
+        pCont.borderP.setCenter(sp);
 
         stage = (Stage) ( (Node) event.getSource()).getScene().getWindow();
         scene = new Scene(root);

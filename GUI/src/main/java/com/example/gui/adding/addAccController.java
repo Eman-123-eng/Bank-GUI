@@ -89,6 +89,7 @@ public class addAccController {
             parentCont.editMenu.getItems().add(parentCont.item4);
             System.out.print("not loading");
             System.out.println(parentCont.addMenu.getItems().size());
+            System.out.println(parentCont.addMenu.getScene());
             stage = (Stage)  parentCont.addMenu.getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

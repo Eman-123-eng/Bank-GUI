@@ -64,7 +64,9 @@
                         <MenuButton alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutY="58.0" mnemonicParsing="false" opacity="0.8" prefHeight="49.0" prefWidth="219.0" scaleShape="false" style="-fx-background-color: #f5e4ca;" text="    Delete" textAlignment="CENTER">
                            <items>
                               <MenuItem fx:id="deleteUser" mnemonicParsing="false" onAction="#deleteUser" text="              Delete User     " />
+<!--
                               <MenuItem fx:id="deleteAdmin" mnemonicParsing="false" onAction="#deleteAdmin" text="             Delete Admin            " />
+-->
                            </items>
                            <font>
                               <Font name="System Bold Italic" size="18.0" />
@@ -73,7 +75,9 @@
                         <MenuButton alignment="CENTER" cacheShape="false" centerShape="false" focusTraversable="false" layoutY="121.0" mnemonicParsing="false" opacity="0.8" prefHeight="49.0" prefWidth="219.0" scaleShape="false" style="-fx-background-color: #f5e4ca;" text="   Edit" textAlignment="CENTER">
                            <items>
                               <MenuItem fx:id="editUser" mnemonicParsing="false" onAction="#editUser" text="              Edit User         " />
+<!--
                               <MenuItem fx:id="editAdmin" mnemonicParsing="false" onAction="#editAdmin" text="             Edit Admin            " />
+-->
                               <MenuItem fx:id="editAcc" mnemonicParsing="false" onAction="#editAcc" text="            Edit Account       " />
                            </items>
                            <font>
