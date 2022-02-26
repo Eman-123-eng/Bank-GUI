@@ -98,8 +98,8 @@ public class MainController {
     }
 
     public void popupWindow(Label l, Button btn) {
-        l.setStyle("-fx-background-color: white;");
-        l.setMinWidth(200);
+        l.setStyle("-fx-background-color: #f5e4ca;  -fx-border-color: rgba(34,108,250,0.7); -fx-border-width: 5px; -fx-padding: 5px");
+        l.setMinWidth(300);
         l.setFont(new Font("System Bold Italic", 16));
         l.setMinHeight(100);
         l.setAlignment(CENTER);
@@ -109,6 +109,7 @@ public class MainController {
 
         Popup pp = new Popup();
         pp.getContent().add(l);
+
 
         pp.setAutoHide(true);
 
@@ -172,27 +173,9 @@ public class MainController {
         System.out.print("sign up is clicket\n");
         Label l = new Label("Thanks for requesting registeration,\n" +
                 "please visit our Bank to complete the process!");
-        l.setStyle("-fx-background-color: white;");
-        l.setFont(new Font("System Bold Italic", 16));
-        l.setMinWidth(200);
-        l.setMinHeight(100);
-        l.setAlignment(CENTER);
 
-        //scene2.getStylesheets().add("src/main/java/css/styles.css");
-        //l.getStyleClass().add("popup");
+        popupWindow(l, signin);
 
-        Popup pp = new Popup();
-        pp.getContent().add(l);
-
-        pp.setAutoHide(true);
-
-        PauseTransition delay = new PauseTransition(Duration.seconds(3));
-        delay.setOnFinished(e -> pp.hide());
-
-        if (!pp.isShowing()) {
-            pp.show(signup_link.getScene().getWindow());
-            delay.play();
-        }
 
 
     }
