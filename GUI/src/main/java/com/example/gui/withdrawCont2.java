@@ -3,14 +3,25 @@ package com.example.gui;
 import BankManagement.BankAccount;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class withdrawCont2 {
+
+    public Scene scene;
+    public Parent root;
+    public Stage stage;
+
     @FXML
     public Button M50, M100, M200, M500, M1000, M2000, M3000, anotherAmt;
 
@@ -40,7 +51,20 @@ public class withdrawCont2 {
             checkBal(3000, source);
         }
         else{
-            //open another window
+            try {
+                FXMLLoader fxml = new FXMLLoader(getClass().getResource("adminIDRequest.fxml"));
+                root = fxml.load();
+                stage = new Stage();
+                stage.hide();
+                scene = new Scene(root);
+                stage.initModality(Modality.APPLICATION_MODAL);
+                stage.initStyle(StageStyle.UNDECORATED);
+                stage.setScene(scene);
+                stage.show();
+               // Mng.getScene().getWindow().hide();
+            } catch (Exception e) {
+                System.out.println("can't load the page");
+            }
         }
     }
     public void checkBal(double amt, Button btn){
