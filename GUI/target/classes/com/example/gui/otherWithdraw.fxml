@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.gui.OtherDrawController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <Label layoutX="33.0" layoutY="24.0" prefHeight="29.0" prefWidth="212.0" text="Enter the amount: ">
+            <font>
+                <Font name="System Bold Italic" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="amount" layoutX="53.0" layoutY="64.0" prefHeight="29.0" prefWidth="183.0" style="-fx-border-color: rgba(101,206,245,0.74);" />
+        <Button fx:id="backReq" layoutX="158.0" layoutY="115.0" mnemonicParsing="false" onAction="#onBack" prefHeight="35.0" prefWidth="61.0" style="-fx-background-color: #e3d0a7; -fx-background-radius: 30;" text="Back">
+            <font>
+                <Font name="System Bold Italic" size="16.0" />
+            </font>
+        </Button>
+        <Button fx:id="okBtn" layoutX="66.0" layoutY="115.0" mnemonicParsing="false" onAction="#onOk" prefHeight="35.0" prefWidth="61.0" style="-fx-background-color: #e3d0a7; -fx-background-radius: 30;" text="OK">
+            <font>
+                <Font name="System Bold Italic" size="16.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

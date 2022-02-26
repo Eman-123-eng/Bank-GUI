@@ -43,7 +43,7 @@ public class withdrawCont2 {
             //open another window
         }
     }
-    void checkBal(double amt, Button btn){
+    public void checkBal(double amt, Button btn){
         MainController m = new MainController();
 
         BankAccount myAcc = BankAccount.getAccount(MainController.ID);
