@@ -81,8 +81,10 @@ public class BankAccount {
                     newAccount.setCustID(accountInfo[4]);
                     newAccount.setBalance(new Double(accountInfo[5]));
                     String[] miniStates = accountInfo[6].split(";");
-                    for (String s : miniStates)
+                    for (String s : miniStates){
+                        if (s.length() <= 5) continue;
                         newAccount.operations.add(s.trim());
+                    }
                     accountArrayFile.add(newAccount);
                 }
                 // System.out.println(arrayFile);

@@ -84,8 +84,8 @@ public class MngController {
     @FXML
     private MenuItem editUser;
 
-    public Stage stage2,stage;
-    public Parent root2,root;
+    public Stage stage2, stage;
+    public Parent root2, root;
 
     public Scene scene2;
 
@@ -97,12 +97,12 @@ public class MngController {
     }
 
     @FXML
-    void addAdmin(ActionEvent event) throws IOException{
+    void addAdmin(ActionEvent event) throws IOException {
         addPane("addCust_Admin.fxml");
     }
 
     @FXML
-    void addUser(ActionEvent event) throws IOException{
+    void addUser(ActionEvent event) throws IOException {
         addPane("addCust.fxml");
         //setStackPane("addCust.fxml");
     }
@@ -113,28 +113,28 @@ public class MngController {
         }*/
 
     @FXML
-    void deleteAdmin(ActionEvent event) throws IOException{
+    void deleteAdmin(ActionEvent event) throws IOException {
         addPane("adminDELETE.fxml");
     }
 
     @FXML
-    void deleteUser(ActionEvent event) throws IOException{
+    void deleteUser(ActionEvent event) throws IOException {
         addPane("userDELETE.fxml");
     }
 
     @FXML
-    void editAdmin(ActionEvent event) throws IOException{
+    void editAdmin(ActionEvent event) throws IOException {
         show("editRequestAdmin.fxml");
     }
 
     @FXML
-    void editUser(ActionEvent event) throws IOException{
+    void editUser(ActionEvent event) throws IOException {
         show("editRequestUSER.fxml");
 
     }
 
     @FXML
-    void editAcc(ActionEvent event) throws IOException{
+    void editAcc(ActionEvent event) throws IOException {
         show("editRequest.fxml");
     }
 
@@ -184,53 +184,72 @@ public class MngController {
         stage2.setScene(scene2);
         stage2.show();
 
-        cont = fxml.getController();
-        cont.setParent(this);
+       /* cont = fxml.getController();
+        cont.setParent(this);*/
     }
 
 
     @FXML
     void back(ActionEvent event) {
         try {
-            show("adminCheck.fxml");
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("adminCheck.fxml"));
+            root2 = fxml.load();
+            stage2 = new Stage();
+            stage2.hide();
+            scene2 = new Scene(root2);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initStyle(StageStyle.UNDECORATED);
+            stage2.setScene(scene2);
+            stage2.show();
             back.getScene().getWindow().hide();
-        }
-        catch(Exception e){
-            System.out.println("can't load the page");
+        } catch (Exception e) {
+            System.out.println("can't load the page for back");
         }
 
     }
 
     @FXML
     void okBtn(ActionEvent event) {
-        id=ID.getText();
+        id = ID.getText();
         adminDisplay(id);
-     //   adminName.setText("Welcome "+ Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getFirstName());
-     //   adminName.setVisible(true);
+        //   adminName.setText("Welcome "+ Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getFirstName());
+        //   adminName.setVisible(true);
     }
-    public void adminDisplay(String id) {
-        if(Objects.equals(Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getPost(),"Manager")){
-            try {
-                show("ManagerDisplay.fxml");
-                okBtn.getScene().getWindow().hide();
 
-            }
-            catch(Exception e){
-                System.out.println("can't load the page");
-            }
+    public void adminDisplay(String id) {
+        BankCustomer admin = BankCustomer.getAccbyAdminID(id);
+        if (admin == null) {
+            System.out.println("Incorrect id");
+            return;
         }
-        else{
+        FXMLLoader fxml = null;
+        if (Objects.equals(admin.getPost(), "Manager")) {
             try {
-                show("AdminDisplay.fxml");
-                okBtn.getScene().getWindow().hide();
+                fxml = new FXMLLoader(getClass().getResource("ManagerDisplay.fxml"));
+                root2 = fxml.load();
+
+            } catch (Exception e) {
+                System.out.println("can't load the page manager");
+            }
+        } else {
+            try {
+                fxml = new FXMLLoader(getClass().getResource("AdminDisplay.fxml"));
+                root2 = fxml.load();
                 //adminName.setText("Welcome "+ Objects.requireNonNull(BankCustomer.getAccbyAdminID(id)).getFirstName());
 
+            } catch (Exception e) {
+                System.out.println("can't load the page admin");
             }
-            catch(Exception e){
-                System.out.println("can't load the page");
-            }
-
-
+        }
+        if (fxml != null) {
+            stage2 = new Stage();
+            stage2.hide();
+            scene2 = new Scene(root2);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initStyle(StageStyle.UNDECORATED);
+            stage2.setScene(scene2);
+            stage2.show();
+            okBtn.getScene().getWindow().hide();
         }
 
     }
@@ -239,10 +258,17 @@ public class MngController {
     @FXML
     void Mng(ActionEvent event) {
         try {
-            show("adminIDRequest.fxml");
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("adminIDRequest.fxml"));
+            root2 = fxml.load();
+            stage2 = new Stage();
+            stage2.hide();
+            scene2 = new Scene(root2);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initStyle(StageStyle.UNDECORATED);
+            stage2.setScene(scene2);
+            stage2.show();
             Mng.getScene().getWindow().hide();
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println("can't load the page");
         }
     }
@@ -250,17 +276,27 @@ public class MngController {
     @FXML
     void Trans(ActionEvent event) {
         try {
-            show("custAccDisplay.fxml");
-            Mng.getScene().getWindow().hide();
-        }
-        catch(Exception e){
+            FXMLLoader fxml = new FXMLLoader(getClass().getResource("custAccDisplay.fxml"));
+            root2 = fxml.load();
+            stage2 = new Stage();
+            stage2.hide();
+            scene2 = new Scene(root2);
+            stage2.initModality(Modality.APPLICATION_MODAL);
+            stage2.initStyle(StageStyle.UNDECORATED);
+            stage2.setScene(scene2);
+            stage2.show();
+            Trans.getScene().getWindow().hide();
+        } catch (Exception e) {
             System.out.println("can't load the page");
         }
 
     }
-    public StackPane getContentArea(){return contentArea;}
 
-    public void setStackPane(String file) throws IOException{
+    public StackPane getContentArea() {
+        return contentArea;
+    }
+
+    public void setStackPane(String file) throws IOException {
         FXMLLoader fxml1 = new FXMLLoader(getClass().getResource(file));
         Parent root1 = fxml1.load();
         System.out.println(root1.getChildrenUnmodifiable().size());

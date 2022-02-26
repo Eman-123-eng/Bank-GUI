@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-package com.example.gui;public class withdrawCont2 {
-=======
 package com.example.gui;
 
 import javafx.event.ActionEvent;
@@ -35,5 +32,5 @@ public class withdrawCont2 {
     void checkBal(double amt){
 
     }
->>>>>>> Stashed changes
+
 }

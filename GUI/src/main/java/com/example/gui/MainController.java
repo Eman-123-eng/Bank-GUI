@@ -51,7 +51,7 @@ public class MainController {
 
     @FXML
     void exit(MouseEvent event) {
-        System.out.println("Sign out5");
+        System.out.println("Sign out");
         System.exit(0);
     }
 
@@ -79,7 +79,7 @@ public class MainController {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             System.out.print("this scene can't load with error: " + e);
         }
     }
@@ -121,13 +121,16 @@ public class MainController {
     }
 
     public static String checkID(String id) {
-        //System.out.println(BankAccount.isValidAcc(id));
-        System.out.println(BankAccount.getAccount(id).getCustID());
-        //MainController m = new MainController();
+        BankAccount acc = BankAccount.getAccount(id);
+        if (acc == null) {
+            System.out.println("Invalid acc ID");
+            return null;
+        }
+        System.out.println(acc.getCustID());
         if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
            // MainController.ID = m.id_field.getText();
             ID = id;
-            if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(Objects.requireNonNull(BankAccount.getAccount(id)).getCustID())) { //thus, you are a customer
+            if (BankCustomer.isValidCust(acc.getCustID())) { //thus, you are a customer
                 //if (BankCustomer.isValidPass(String.valueOf(pass))) {
                 //m.id_field.setText("");
                 System.out.println("You are a customer");
