@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane prefHeight="504.0" prefWidth="560.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.withdrawController">
+<Pane prefHeight="504.0" prefWidth="560.0" style="-fx-background-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.withdrawController">
    <children>
       <Label layoutX="44.0" layoutY="31.0" prefHeight="34.0" prefWidth="195.0" text="Please enter your amount !">
          <font>
@@ -19,8 +18,8 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="drawAmt_field" layoutX="243.0" layoutY="102.0" prefHeight="30.0" prefWidth="171.0" />
-      <Button fx:id="withdraw" layoutX="214.0" layoutY="194.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="36.0" prefWidth="124.0" style="-fx-background-radius: 30; -fx-background-color: #DC143C;" text="Withdraw" textFill="#fffefe">
+      <TextField fx:id="drawAmt_field" layoutX="243.0" layoutY="102.0" prefHeight="30.0" prefWidth="171.0" style="-fx-border-color: rgba(101,206,245,0.74);" />
+      <Button fx:id="withdraw" layoutX="214.0" layoutY="194.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="36.0" prefWidth="124.0" style="-fx-background-radius: 30; -fx-background-color: #e3d0a7;" text="Withdraw" textFill="#030303">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>

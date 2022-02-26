@@ -126,6 +126,7 @@ public class MainController {
         //MainController m = new MainController();
         if (BankAccount.isValidAcc(id)) { // Thus, it is an existing account
            // MainController.ID = m.id_field.getText();
+            ID = id;
             if (BankAccount.getAccount(id) != null && BankCustomer.isValidCust(Objects.requireNonNull(BankAccount.getAccount(id)).getCustID())) { //thus, you are a customer
                 //if (BankCustomer.isValidPass(String.valueOf(pass))) {
                 //m.id_field.setText("");

@@ -6,19 +6,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane prefHeight="504.0" prefWidth="648.0" style="-fx-background-color: #FFF8DC;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.accStatController">
+<Pane prefHeight="504.0" prefWidth="648.0" style="-fx-background-color: rgba(101,206,245,0.74);" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gui.accStatController">
     <children>
         <Label layoutX="275.0" layoutY="24.0" prefHeight="30.0" prefWidth="129.0" text="mini-Statement">
             <font>
                 <Font name="System Bold Italic" size="15.0" />
             </font>
         </Label>
-      <Label layoutX="174.0" layoutY="411.0" text="Balance: " textFill="#dc4646">
+      <Label layoutX="145.0" layoutY="419.0" prefHeight="35.0" prefWidth="129.0" text="Balance: " textFill="#141414">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="B_Label" layoutX="279.0" layoutY="411.0" prefHeight="35.0" prefWidth="139.0" textFill="#c72525">
+      <Label fx:id="B_Label" layoutX="284.0" layoutY="419.0" prefHeight="35.0" prefWidth="179.0" textFill="#0a0a0a">
          <font>
             <Font size="24.0" />
          </font>
