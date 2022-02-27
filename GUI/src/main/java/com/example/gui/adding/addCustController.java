@@ -93,8 +93,6 @@ public class addCustController {
 
         sp.setId("stack");
 
-        parentCont.back.setText("go  "); //to be removed
-
         parentCont.borderP.setCenter(sp);
         if(MngController.isManager==1){
             parentCont.item4 = new MenuItem("             Edit Admin            ");

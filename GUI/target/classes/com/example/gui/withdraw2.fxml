@@ -51,7 +51,7 @@
                     </font>
                 </Button>
 
-                <Button fx:id="anotherAmt" layoutX="319.0" layoutY="357.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" style="-fx-background-radius: 30; -fx-background-color: #e3d0a7;" text="Another Money" textFill="#030303">
+                <Button fx:id="anotherAmt" layoutX="319.0" layoutY="357.0" mnemonicParsing="false" onAction="#onDraw" prefHeight="34.0" prefWidth="156.0" style="-fx-background-radius: 30; -fx-background-color: #e3d0a7;" text="Other" textFill="#030303">
                     <font>
                         <Font name="System Bold Italic" size="14.0" />
                     </font>

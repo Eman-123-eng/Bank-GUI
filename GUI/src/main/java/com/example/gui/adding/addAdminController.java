@@ -87,7 +87,6 @@ public class addAdminController {
 
         sp.setId("stack");
 
-        parentCont.back.setText("go  "); //to be removed
 
         parentCont.borderP.setCenter(sp);
         if(MngController.isManager==1){

@@ -57,7 +57,7 @@ public class MngController {
     @FXML
     private Button Manage, accStat, addBtn, deleteBtn, deposit, transfer, transaction_Button, withdraw;
     @FXML
-    public Button  editBtn;
+    public Button  editBtn = new Button();
     @FXML
     public MenuItem item2,item3,item4;
 
@@ -65,7 +65,7 @@ public class MngController {
     public MenuItem addUser;
 
     @FXML
-    private Label adminName;
+    public Label adminName;
 
     @FXML
     private MenuItem deleteAcc;
@@ -319,15 +319,15 @@ public class MngController {
                 try {
                     System.out.println(" ediiiiit");
                     FXMLLoader fxml4 = new FXMLLoader(getClass().getResource("editRequestAdmin.fxml"));
-                    root2 = fxml4.load();
+                     root2 = fxml4.load();
                     stage2 = new Stage();
                     stage2.hide();
-                    scene2 = new Scene(root2);
+                     scene2= new Scene(root2);
                     stage2.initModality(Modality.APPLICATION_MODAL);
                     stage2.initStyle(StageStyle.UNDECORATED);
                     stage2.setScene(scene2);
                     stage2.show();
-                    editBtn.getScene().getWindow().hide();
+                   editBtn.getScene().getWindow().hide();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -424,6 +424,9 @@ public class MngController {
         item.setOnAction(event ->{
             try {
                 System.out.println(" adminnnn");
+                FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
+                Parent root = loader.load();
+                parentCont = loader.getController();
                 parentCont.addPane(path);
             } catch (IOException e) {
                 e.printStackTrace();

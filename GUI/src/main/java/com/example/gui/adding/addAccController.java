@@ -104,7 +104,7 @@ public class addAccController {
             acc.setBalance(Double.parseDouble(balance_field.getText()));
             acc.setCustID(Objects.requireNonNull(BankCustomer.getCustAccount(acc.getAcctID())).getCustID());
             if (Objects.equals(acc.getOperations().get(0), "---")) acc.getOperations().remove(0);
-            acc.getOperations().add(acc.getOperations().size(), "opened :" + acc.getBalance() + "-- at:" + String.valueOf(acc.getDateOpened()));
+            acc.getOperations().add(acc.getOperations().size(), "Opened:" + acc.getBalance() + "-- at:" + String.valueOf(acc.getDateOpened()));
 
             BankAccount.getAccArrayFile().add(acc);
             BankAccount.writeToFile();

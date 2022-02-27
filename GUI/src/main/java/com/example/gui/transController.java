@@ -75,7 +75,8 @@ public class transController {
         LocalDateTime now = LocalDateTime.now();
 
         if (Objects.equals(myAcc.getOperations().get(0), "---")) myAcc.getOperations().remove(0);
-        myAcc.getOperations().add(myAcc.getOperations().size(), "Transfer:" + amt + "-- to " + toAcc.getAcctNo() + "-- at:" + dtf.format(now));
+        myAcc.getOperations().add(myAcc.getOperations().size(), "Transfer:" + amt + "-- at:" + dtf.format(now));
+        //myAcc.getOperations().add(myAcc.getOperations().size(), "Transfer:" + amt + "' to " + toAcc.getAcctNo() + "-- at:" + dtf.format(now));
 
         BankAccount.writeToFile();
         transLabel.setText("New Balance: " + myAcc.getBalance());

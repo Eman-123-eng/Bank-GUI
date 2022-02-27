@@ -58,7 +58,7 @@ public class editRequestController {
     void okBtn(ActionEvent event) throws IOException{
         id=ID.getText();
         if(BankAccount.isValidAcc(id)){
-            okBtn.getScene().getWindow().hide();
+            //okBtn.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
             Parent root = loader.load();
             parentCont = loader.getController();
@@ -72,7 +72,6 @@ public class editRequestController {
 
             sp.setId("stack");
 
-            parentCont.back.setText("go  "); //to be removed
 
             parentCont.borderP.setCenter(sp);
 
@@ -119,7 +118,7 @@ public class editRequestController {
         System.out.print(isValidCust(id));
         if(isValidCust(id)){
 
-            okBtn_user.getScene().getWindow().hide();
+            //okBtn_user.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
             Parent root = loader.load();
             parentCont = loader.getController();
@@ -134,7 +133,6 @@ public class editRequestController {
 
             sp.setId("stack");
 
-            parentCont.back.setText("go  "); //to be removed
 
             parentCont.borderP.setCenter(sp);
 
@@ -178,7 +176,7 @@ public class editRequestController {
         id=ID_admin.getText();
         if(BankCustomer.getAccbyAdminID(id)!=null){
 
-            okBtn_admin.getScene().getWindow().hide();
+           // okBtn_admin.getScene().getWindow().hide();
             FXMLLoader loader = new FXMLLoader(MngController.class.getResource("ManagerDisplay.fxml"));
             Parent root = loader.load();
             parentCont = loader.getController();
@@ -191,8 +189,6 @@ public class editRequestController {
             sp.getChildren().add(rootAcc);
 
             sp.setId("stack");
-
-            parentCont.back.setText("go  "); //to be removed
 
             parentCont.borderP.setCenter(sp);
 
