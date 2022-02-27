@@ -103,7 +103,7 @@ public class addAccController {
             BankAccount acc = new BankAccount(accID_Field.getText(),accPsswrd_Field1.getText(), No_Field.getText(), LocalDate.now(), typeField.getText());
             acc.setBalance(Double.parseDouble(balance_field.getText()));
             acc.setCustID(Objects.requireNonNull(BankCustomer.getCustAccount(acc.getAcctID())).getCustID());
-            if (Objects.equals(acc.getOperations().get(0), "---")) acc.getOperations().remove(0);
+            //if (Objects.equals(acc.getOperations().get(0), "---")) acc.getOperations().remove(0);
             acc.getOperations().add(acc.getOperations().size(), "Opened:" + acc.getBalance() + "-- at:" + String.valueOf(acc.getDateOpened()));
 
             BankAccount.getAccArrayFile().add(acc);
@@ -111,6 +111,7 @@ public class addAccController {
             add_Lbl.setText("Account is added successfully!");
         }
         catch(Exception e){
+            e.printStackTrace();
             System.out.println("can't add the account");
         }
     }
